@@ -1,8 +1,13 @@
 package modele;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("IMMEUBLE")
 public class Immeuble extends Projet {
-	private Object nbNiveaux;
-	public Vector<Appartement> unnamed_Appartement_ = new Vector<Appartement>();
+	private int nbNiveaux;
+	public ArrayList<Appartement> appartement = new ArrayList<Appartement>();
 }
