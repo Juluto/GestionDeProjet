@@ -1,7 +1,7 @@
 package modele;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ public class Platerie extends Lot {
 		// TODO Auto-generated constructor stub
 	}
 	public Platerie(int numero, Date dateDebut, int dureeEstimee, int coutEstime, String avancement, int coutReel,
-			Date dateFinReel, ArrayList<Entreprise> realise, Entreprise responsable) {
+			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel, realise, responsable);
 		// TODO Auto-generated constructor stub
 	}

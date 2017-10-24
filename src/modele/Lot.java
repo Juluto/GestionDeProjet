@@ -1,8 +1,9 @@
 package modele;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,12 +31,12 @@ public abstract class Lot implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateFinReel;
 	@ManyToMany
-	public ArrayList<Entreprise> realise = new ArrayList<Entreprise>();
+	private Set<Entreprise> realise = new HashSet<Entreprise>();
 	@ManyToOne
-	public Entreprise responsable;
+	private Entreprise responsable;
 	
 	public Lot(int numero, Date dateDebut, int dureeEstimee, int coutEstime, String avancement, int coutReel,
-			Date dateFinReel, ArrayList<Entreprise> realise, Entreprise responsable) {
+			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable) {
 		super();
 		this.numero = numero;
 		this.dateDebut = dateDebut;
@@ -108,11 +109,11 @@ public abstract class Lot implements Serializable {
 		this.dateFinReel = dateFinReel;
 	}
 
-	public ArrayList<Entreprise> getRealise() {
+	public Set<Entreprise> getRealise() {
 		return realise;
 	}
 
-	public void setRealise(ArrayList<Entreprise> realise) {
+	public void setRealise(Set<Entreprise> realise) {
 		this.realise = realise;
 	}
 

@@ -1,8 +1,10 @@
 package modele;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,7 @@ import javax.persistence.OneToOne;
 
 import enumeration.ECorpsMetier;
 
+@Entity
 public class Entreprise implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,11 +22,11 @@ public class Entreprise implements Serializable {
 	private ECorpsMetier corpsMetier;
 	private String numTel;
 	@OneToMany
-	public ArrayList<Acteur> acteur = new ArrayList<Acteur>();
+	private Set<Acteur> acteur = new HashSet<Acteur>();
 	@OneToOne
-	public Adresse siegeSocial;
+	private Adresse siegeSocial;
 	
-	public Entreprise(int id, String nom, ECorpsMetier corpsMetier, String numTel, ArrayList<Acteur> acteur,
+	public Entreprise(int id, String nom, ECorpsMetier corpsMetier, String numTel, Set<Acteur> acteur,
 			Adresse siegeSocial) {
 		super();
 		this.id = id;
@@ -70,11 +73,11 @@ public class Entreprise implements Serializable {
 		this.numTel = numTel;
 	}
 	
-	public ArrayList<Acteur> getActeur() {
+	public Set<Acteur> getActeur() {
 		return acteur;
 	}
 	
-	public void setActeur(ArrayList<Acteur> acteur) {
+	public void setActeur(Set<Acteur> acteur) {
 		this.acteur = acteur;
 	}
 	

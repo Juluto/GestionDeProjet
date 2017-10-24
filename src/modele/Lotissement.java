@@ -1,7 +1,8 @@
 package modele;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Vector;
 
 import javax.persistence.DiscriminatorValue;
@@ -13,14 +14,15 @@ import javax.persistence.OneToMany;
 public class Lotissement extends Projet {
 	private int nbMaisons;
 	@OneToMany
-	public ArrayList<Maison> listMaison = new ArrayList<Maison>();
+	private Set<Maison> listMaison = new HashSet<Maison>();
+	
 	public Lotissement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Lotissement(int refProjet, String nom, int surfaceTotal, String avancement, Date dateFinEstimee,
-			int coutTotalEstime, boolean termine, Date dateFinReelle, ArrayList<Acteur> participe, Adresse localisation,
-			ArrayList<Lot> est_decoupe_en) {
+			int coutTotalEstime, boolean termine, Date dateFinReelle, Set<Acteur> participe, Adresse localisation,
+			Set<Lot> est_decoupe_en) {
 		super(refProjet, nom, surfaceTotal, avancement, dateFinEstimee, coutTotalEstime, termine, dateFinReelle, participe,
 				localisation, est_decoupe_en);
 		// TODO Auto-generated constructor stub
@@ -31,10 +33,10 @@ public class Lotissement extends Projet {
 	public void setNbMaisons(int nbMaisons) {
 		this.nbMaisons = nbMaisons;
 	}
-	public ArrayList<Maison> getListMaison() {
+	public Set<Maison> getListMaison() {
 		return listMaison;
 	}
-	public void setListMaison(ArrayList<Maison> listMaison) {
+	public void setListMaison(Set<Maison> listMaison) {
 		this.listMaison = listMaison;
 	}
 	

@@ -1,7 +1,8 @@
 package modele;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,11 +19,11 @@ public class Acteur implements Serializable {
 	private ETitre titre;
 	private EStatut statut;
 	@ManyToOne
-	public Entreprise entreprise;
+	private Entreprise entreprise;
 	@ManyToMany
-	public ArrayList<Projet> participe = new ArrayList<Projet>();
-
-	public Acteur(String nom, ETitre titre, EStatut statut, Entreprise entreprise, ArrayList<Projet> participe) {
+	private Set<Projet> participe = new HashSet<Projet>();
+	
+	public Acteur(String nom, ETitre titre, EStatut statut, Entreprise entreprise, Set<Projet> participe) {
 		super();
 		this.nom = nom;
 		this.titre = titre;
@@ -67,11 +68,11 @@ public class Acteur implements Serializable {
 		this.entreprise = entreprise;
 	}
 
-	public ArrayList<Projet> getParticipe() {
+	public Set<Projet> getParticipe() {
 		return participe;
 	}
 
-	public void setParticipe(ArrayList<Projet> participe) {
+	public void setParticipe(Set<Projet> participe) {
 		this.participe = participe;
 	}
 	

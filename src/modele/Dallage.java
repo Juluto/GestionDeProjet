@@ -1,7 +1,7 @@
 package modele;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ public class Dallage extends Lot {
 	private int surfaceTotale;
 
 	public Dallage(int numero, Date dateDebut, int dureeEstimee, int coutEstime, String avancement, int coutReel,
-			Date dateFinReel, ArrayList<Entreprise> realise, Entreprise responsable, int surfaceTotale) {
+			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable, int surfaceTotale) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel, realise, responsable);
 		this.surfaceTotale = surfaceTotale;
 	}
