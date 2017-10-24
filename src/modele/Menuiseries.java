@@ -12,6 +12,7 @@ public class Menuiseries extends Lot {
 	private int nbFenetres;
 	private int nbPortes;
 	private int nbFenetreToit;
+	
 	public Menuiseries() {
 		super();
 		// TODO Auto-generated constructor stub

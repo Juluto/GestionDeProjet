@@ -6,11 +6,13 @@ import java.util.Vector;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("LOTISSEMENT")
 public class Lotissement extends Projet {
 	private int nbMaisons;
+	@OneToMany
 	public ArrayList<Maison> listMaison = new ArrayList<Maison>();
 	public Lotissement() {
 		super();

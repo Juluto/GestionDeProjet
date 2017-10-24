@@ -8,10 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Lot implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +29,9 @@ public abstract class Lot implements Serializable {
 	private int coutReel;
 	@Temporal(TemporalType.DATE)
 	private Date dateFinReel;
+	@ManyToMany
 	public ArrayList<Entreprise> realise = new ArrayList<Entreprise>();
+	@ManyToOne
 	public Entreprise responsable;
 	
 	public Lot(int numero, Date dateDebut, int dureeEstimee, int coutEstime, String avancement, int coutReel,

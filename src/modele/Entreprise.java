@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import enumeration.ECorpsMetier;
 
@@ -16,7 +18,9 @@ public class Entreprise implements Serializable {
 	private String nom;
 	private ECorpsMetier corpsMetier;
 	private String numTel;
+	@OneToMany
 	public ArrayList<Acteur> acteur = new ArrayList<Acteur>();
+	@OneToOne
 	public Adresse siegeSocial;
 	
 	public Entreprise(int id, String nom, ECorpsMetier corpsMetier, String numTel, ArrayList<Acteur> acteur,

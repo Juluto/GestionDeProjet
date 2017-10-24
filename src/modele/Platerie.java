@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 public class Platerie extends Lot {
 	private int surfacePlafond;
 	private int surfaceMur;
+	
 	public Platerie() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 public class Maison extends Projet {
 	private int nbPieces;
 	private int nbNiveaux;
+	
 	public Maison() {
 		super();
 		// TODO Auto-generated constructor stub

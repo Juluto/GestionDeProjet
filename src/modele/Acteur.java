@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import enumeration.EStatut;
 import enumeration.ETitre;
@@ -15,7 +17,9 @@ public class Acteur implements Serializable {
 	private String nom;
 	private ETitre titre;
 	private EStatut statut;
+	@ManyToOne
 	public Entreprise entreprise;
+	@ManyToMany
 	public ArrayList<Projet> participe = new ArrayList<Projet>();
 
 	public Acteur(String nom, ETitre titre, EStatut statut, Entreprise entreprise, ArrayList<Projet> participe) {

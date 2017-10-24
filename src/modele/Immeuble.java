@@ -5,11 +5,13 @@ import java.util.Date;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("IMMEUBLE")
 public class Immeuble extends Projet {
 	private int nbNiveaux;
+	@OneToMany
 	public ArrayList<Appartement> appartement = new ArrayList<Appartement>();
 	
 	public Immeuble(int refProjet, String nom, int surfaceTotal, String avancement, Date dateFinEstimee,

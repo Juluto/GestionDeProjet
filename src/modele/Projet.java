@@ -9,10 +9,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Projet implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +32,11 @@ public abstract class Projet implements Serializable{
 	private boolean termine;
 	@Temporal(TemporalType.DATE)
 	private Date dateFinReelle;
+	@ManyToMany
 	public ArrayList<Acteur> participe = new ArrayList<Acteur>();
+	@OneToOne
 	public Adresse localisation;
+	@OneToMany
 	public ArrayList<Lot> est_decoupe_en = new ArrayList<Lot>();
 	
 	public Projet(int refProjet, String nom, int surfaceTotal, String avancement, Date dateFinEstimee,

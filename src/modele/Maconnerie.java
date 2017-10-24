@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 public class Maconnerie extends Lot {
 	private int surfaceMur;
 	private int nbPoteaux;
+	
 	public Maconnerie() {
 		super();
 		// TODO Auto-generated constructor stub
