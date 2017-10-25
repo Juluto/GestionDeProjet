@@ -14,6 +14,8 @@ public class Main {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("CONCEPTIONCONSTRUCTION");
 		EntityManager em = emf.createEntityManager();
 		JeuDEssai.jeuDEssai(emf, em);
+		em.close();
+		emf.close();
 	}
 
 }

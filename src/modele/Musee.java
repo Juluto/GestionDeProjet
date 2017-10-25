@@ -13,9 +13,9 @@ public class Musee extends BatimentPublic {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Musee(String ministere) {
+	public Musee(String ministere, int nbSalles) {
 		super(ministere);
-		// TODO Auto-generated constructor stub
+		this.nbSalles = nbSalles;
 	}
 
 	public int getNbSalles() {
@@ -25,6 +25,5 @@ public class Musee extends BatimentPublic {
 	public void setNbSalles(int nbSalles) {
 		this.nbSalles = nbSalles;
 	}
-	
-	
+
 }
