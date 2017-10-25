@@ -34,11 +34,11 @@ public abstract class Projet implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date dateFinReelle;
 	@ManyToMany
-	public Set<Acteur> participe = new HashSet<Acteur>();
+	private Set<Acteur> participe = new HashSet<Acteur>();
 	@OneToOne
-	public Adresse localisation;
+	private Adresse localisation;
 	@OneToMany
-	public Set<Lot> est_decoupe_en = new HashSet<Lot>();
+	private Set<Lot> est_decoupe_en = new HashSet<Lot>();
 	
 	public Projet(int refProjet, String nom, int surfaceTotal, String avancement, Date dateFinEstimee,
 			int coutTotalEstime, boolean termine, Date dateFinReelle, Set<Acteur> participe, Adresse localisation,
