@@ -1,7 +1,19 @@
 package controleur;
 
 public class JeuDEssai {
+	
+	public void jeuActeur() {
+		
+	}
 
+	public void jeuAdresse() {
+		
+	}
+	
+	public void jeuEntreprise() {
+		
+	}
+	
 	public void ProjetsTermines() {
 		lotissementTermine();
 		immeubleTermine();
