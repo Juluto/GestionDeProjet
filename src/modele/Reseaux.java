@@ -17,9 +17,9 @@ public class Reseaux extends Lot {
 	}
 
 	public Reseaux(int numero, Date dateDebut, int dureeEstimee, int coutEstime, String avancement, int coutReel,
-			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable) {
+			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable, int longueur) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel, realise, responsable);
-		// TODO Auto-generated constructor stub
+		this.longueur = longueur;
 	}
 
 	public int getLongueur() {
@@ -29,6 +29,5 @@ public class Reseaux extends Lot {
 	public void setLongueur(int longueur) {
 		this.longueur = longueur;
 	}
-	
-	
+
 }

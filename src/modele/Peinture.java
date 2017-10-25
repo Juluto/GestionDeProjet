@@ -17,9 +17,9 @@ public class Peinture extends Lot {
 	}
 
 	public Peinture(int numero, Date dateDebut, int dureeEstimee, int coutEstime, String avancement, int coutReel,
-			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable) {
+			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable, int surface) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel, realise, responsable);
-		// TODO Auto-generated constructor stub
+		this.surface = surface;
 	}
 
 	public int getSurface() {
@@ -29,6 +29,5 @@ public class Peinture extends Lot {
 	public void setSurface(int surface) {
 		this.surface = surface;
 	}
-	
-	
+
 }

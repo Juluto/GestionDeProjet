@@ -17,9 +17,9 @@ public class Terrassement extends Lot {
 	}
 
 	public Terrassement(int numero, Date dateDebut, int dureeEstimee, int coutEstime, String avancement, int coutReel,
-			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable) {
+			Date dateFinReel, Set<Entreprise> realise, Entreprise responsable, int volumeTerre) {
 		super(numero, dateDebut, dureeEstimee, coutEstime, avancement, coutReel, dateFinReel, realise, responsable);
-		// TODO Auto-generated constructor stub
+		this.volumeTerre = volumeTerre;
 	}
 
 	public int getVolumeTerre() {
@@ -29,6 +29,5 @@ public class Terrassement extends Lot {
 	public void setVolumeTerre(int volumeTerre) {
 		this.volumeTerre = volumeTerre;
 	}
-	
-	
+
 }
