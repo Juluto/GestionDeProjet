@@ -1,7 +1,9 @@
 package controleur;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -41,7 +43,11 @@ public class JeuDEssai {
 		listActeur.add(new Acteur("actTech2", ETitre.technicien, EStatut.employe, listEntreprise.get(0), null));
 		listActeur.add(new Acteur("actTech3", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(0), null));
 		listActeur.add(new Acteur("actTech4", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(0), null));
-		
+		Set<Acteur> set = new HashSet<Acteur>(listActeur);
+		em.getTransaction().begin();
+		Entreprise entreprise = em.find(Entreprise.class, 1);
+		entreprise.setActeur(set);
+		em.getTransaction().commit();
 		Iterator<Acteur> iterator = listActeur.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -130,8 +136,6 @@ public class JeuDEssai {
 			em.persist(iterator.next());
 			em.getTransaction().commit();
 		}
-		em.close();
-		emf.close();
 		return listAppartement;
 	}
 	
