@@ -2,29 +2,29 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="CONCEPTIONCONSTRUCTION" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>vue.Acteur</class>
-        <class>vue.Adresse</class>
-        <class>vue.Appartement</class>
-        <class>vue.BatimentPublic</class>
-        <class>vue.Charpente</class>
-        <class>vue.Dallage</class>
-        <class>vue.Electricite</class>
-        <class>vue.Entreprise</class>
-        <class>vue.EtablissementScolaire</class>
-        <class>vue.Fondation</class>
-        <class>vue.Hopital</class>
-        <class>vue.Immeuble</class>
-        <class>vue.Lot</class>
-        <class>vue.Lotissement</class>
-        <class>vue.Maconnerie</class>
-        <class>vue.Maison</class>
-        <class>vue.Menuiseries</class>
-        <class>vue.Musee</class>
-        <class>vue.Peinture</class>
-        <class>vue.Platerie</class>
-        <class>vue.Projet</class>
-        <class>vue.Reseaux</class>
-        <class>vue.Terrassement</class>
+        <class>modele.Acteur</class>
+        <class>modele.Adresse</class>
+        <class>modele.Appartement</class>
+        <class>modele.BatimentPublic</class>
+        <class>modele.Charpente</class>
+        <class>modele.Dallage</class>
+        <class>modele.Electricite</class>
+        <class>modele.Entreprise</class>
+        <class>modele.EtablissementScolaire</class>
+        <class>modele.Fondation</class>
+        <class>modele.Hopital</class>
+        <class>modele.Immeuble</class>
+        <class>modele.Lot</class>
+        <class>modele.Lotissement</class>
+        <class>modele.Maconnerie</class>
+        <class>modele.Maison</class>
+        <class>modele.Menuiseries</class>
+        <class>modele.Musee</class>
+        <class>modele.Peinture</class>
+        <class>modele.Platerie</class>
+        <class>modele.Projet</class>
+        <class>modele.Reseaux</class>
+        <class>modele.Terrassement</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/conceptionconstruction"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
