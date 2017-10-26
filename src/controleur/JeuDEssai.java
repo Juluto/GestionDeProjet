@@ -63,6 +63,13 @@ public class JeuDEssai {
 		listActeur.add(new Acteur("actArchi10", ETitre.architecte, EStatut.employe, listEntreprise.get(2), null));
 		listActeur.add(new Acteur("actArchi11", ETitre.architecte, EStatut.employe, listEntreprise.get(3), null));
 		listActeur.add(new Acteur("actArchi12", ETitre.architecte, EStatut.employe, listEntreprise.get(3), null));
+		listActeur.add(new Acteur("actArchi13", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(15), null));
+		listActeur.add(new Acteur("actArchi14", ETitre.architecte, EStatut.employe, listEntreprise.get(15), null));
+		listActeur.add(new Acteur("actArchi15", ETitre.architecte, EStatut.directeur, listEntreprise.get(16), null));
+		listActeur.add(new Acteur("actArchi16", ETitre.architecte, EStatut.responsable, listEntreprise.get(17), null));
+		listActeur.add(new Acteur("actArchi17", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(18), null));
+		listActeur.add(new Acteur("actArchi18", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(19), null));
+		listActeur.add(new Acteur("actArchi19", ETitre.architecte, EStatut.employe, listEntreprise.get(18), null));
 		listActeur.add(new Acteur("actDocteur1", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(4), null));
 		listActeur.add(new Acteur("actDocteur2", ETitre.docteur, EStatut.responsable, listEntreprise.get(5), null));
 		listActeur.add(new Acteur("actDocteur3", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(6), null));
@@ -85,6 +92,12 @@ public class JeuDEssai {
 		listActeur.add(new Acteur("actIng14", ETitre.ingenieur, EStatut.employe, listEntreprise.get(9), null));
 		listActeur.add(new Acteur("actIng15", ETitre.ingenieur, EStatut.employe, listEntreprise.get(10), null));
 		listActeur.add(new Acteur("actIng16", ETitre.ingenieur, EStatut.employe, listEntreprise.get(10), null));
+		listActeur.add(new Acteur("actIng17", ETitre.ingenieur, EStatut.employe, listEntreprise.get(16), null));
+		listActeur.add(new Acteur("actIng18", ETitre.ingenieur, EStatut.employe, listEntreprise.get(16), null));
+		listActeur.add(new Acteur("actIng19", ETitre.ingenieur, EStatut.employe, listEntreprise.get(18), null));
+		listActeur.add(new Acteur("actIng20", ETitre.ingenieur, EStatut.BIM_Manager, listEntreprise.get(20), null));
+		listActeur.add(new Acteur("actIng21", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20), null));
+		listActeur.add(new Acteur("actIng22", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20), null));
 		listActeur.add(new Acteur("actTech1", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(12), null));
 		listActeur.add(new Acteur("actTech2", ETitre.technicien, EStatut.employe, listEntreprise.get(11), null));
 		listActeur.add(new Acteur("actTech3", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(11), null));
@@ -96,6 +109,14 @@ public class JeuDEssai {
 		listActeur.add(new Acteur("actTech9", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(14), null));
 		listActeur.add(new Acteur("actTech10", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(13), null));
 		listActeur.add(new Acteur("actTech11", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(14), null));
+		listActeur.add(new Acteur("actTech12", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(15), null));
+		listActeur.add(new Acteur("actTech13", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(17), null));
+		listActeur.add(new Acteur("actTech14", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(17), null));
+		listActeur.add(new Acteur("actTech15", ETitre.technicien, EStatut.employe, listEntreprise.get(19), null));
+		listActeur.add(new Acteur("actTech16", ETitre.technicien, EStatut.employe, listEntreprise.get(19), null));
+		listActeur.add(new Acteur("actTech17", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(21), null));
+		listActeur.add(new Acteur("actTech18", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21), null));
+		listActeur.add(new Acteur("actTech19", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21), null));
 		Iterator<Acteur> iterator = listActeur.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -138,6 +159,13 @@ public class JeuDEssai {
 		listAdresse.add(new Adresse(0, 12, "rue de Blizzard", 39800, "Barretaine"));
 		listAdresse.add(new Adresse(0, 25, "rue des arbres", 68490, "Hombourg"));
 		listAdresse.add(new Adresse(0, 25, "rue de toto", 17540, "Bouhet"));
+		listAdresse.add(new Adresse(0, 12, "rue de tata", 16380, "Chazelles"));
+		listAdresse.add(new Adresse(0, 74, "rue de tutu", 24550, "Lavaur"));
+		listAdresse.add(new Adresse(0, 45, "rue de titi", 46800, "Montcuq"));
+		listAdresse.add(new Adresse(0, 25, "rue de pissentlit", 54740, "Jevoncourt"));
+		listAdresse.add(new Adresse(0, 51, "rue de la menagerie", 62240, "Courset"));
+		listAdresse.add(new Adresse(0, 15, "rue de la vie", 05600, "Ceillac"));
+		listAdresse.add(new Adresse(0, 26, "rue de la miage", 59222, "Bousies"));
 		Iterator<Adresse> iterator = listAdresse.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -177,6 +205,18 @@ public class JeuDEssai {
 		listEntreprise
 				.add(new Entreprise(0, "Platre riait", ECorpsMetier.platrier, "0247896324", null, listAdresse.get(0)));
 		listEntreprise.add(new Entreprise(0, "Toto", ECorpsMetier.peintre, "0485963247", null, listAdresse.get(14)));
+		listEntreprise
+		.add(new Entreprise(0, "Menuition", ECorpsMetier.menuisier, "0348745961", null, listAdresse.get(15)));
+		listEntreprise
+		.add(new Entreprise(0, "Menuitieur", ECorpsMetier.menuisier, "0365874129", null, listAdresse.get(16)));
+		listEntreprise
+		.add(new Entreprise(0, "Menuimenui", ECorpsMetier.menuisier, "0548963274", null, listAdresse.get(17)));
+		listEntreprise.add(new Entreprise(0, "Macron", ECorpsMetier.macon, "0145236987", null, listAdresse.get(18)));
+		listEntreprise.add(new Entreprise(0, "Macron", ECorpsMetier.macon, "0145236987", null, listAdresse.get(19)));
+		listEntreprise
+		.add(new Entreprise(0, "Serre u riait", ECorpsMetier.serrurier, "0148596632", null, listAdresse.get(20)));
+		listEntreprise
+		.add(new Entreprise(0, "Azerty", ECorpsMetier.serrurier, "0365478921", null, listAdresse.get(21)));
 		Iterator<Entreprise> iterator = listEntreprise.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -229,16 +269,26 @@ public class JeuDEssai {
 		ArrayList<Terrassement> listTerrassement = new ArrayList<Terrassement>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(0));
-		setEntreprise1.add(listEntreprise.get(1));
+		setEntreprise1.add(listEntreprise.get(3));
+		setEntreprise1.add(listEntreprise.get(12));
 		listTerrassement.add(new Terrassement(0, dateDebut1, 4, 150000, "enCours", 200000, null, setEntreprise1,
-				listEntreprise.get(0), 200));
+				listEntreprise.get(3), 200));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(2));
 		setEntreprise2.add(listEntreprise.get(3));
 		listTerrassement.add(new Terrassement(0, dateDebut2, 5, 160000, "enCours", 180000, null, setEntreprise2,
-				listEntreprise.get(2), 150));
+				listEntreprise.get(3), 150));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(12));
+		listTerrassement.add(new Terrassement(0, dateDebut3, 2, 140000, "termine", 150000, dateFin3, setEntreprise3,
+				listEntreprise.get(12), 130));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(12));
+		setEntreprise4.add(listEntreprise.get(3));
+		listTerrassement.add(new Terrassement(0, dateDebut4, 2, 130000, "termine", 120000, dateFin4, setEntreprise4,
+				listEntreprise.get(12), 120));
 
 		Iterator<Terrassement> iterator = listTerrassement.listIterator();
 		while (iterator.hasNext()) {
@@ -262,17 +312,26 @@ public class JeuDEssai {
 		ArrayList<Dallage> listDallage = new ArrayList<Dallage>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(10));
-		setEntreprise1.add(listEntreprise.get(11));
-		setEntreprise1.add(listEntreprise.get(12));
+		setEntreprise1.add(listEntreprise.get(1));
+		setEntreprise1.add(listEntreprise.get(6));
 		listDallage.add(new Dallage(0, dateDebut1, 6, 200000, "enCours", 220000, null, setEntreprise1,
-				listEntreprise.get(10), 220));
+				listEntreprise.get(1), 220));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
 		setEntreprise2.add(listEntreprise.get(6));
-		setEntreprise2.add(listEntreprise.get(7));
+		setEntreprise2.add(listEntreprise.get(1));
 		listDallage.add(new Dallage(0, dateDebut2, 7, 170000, "enCours", 180000, null, setEntreprise2,
-				listEntreprise.get(2), 130));
+				listEntreprise.get(6), 130));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(1));
+		listDallage.add(new Dallage(0, dateDebut3, 2, 200000, "termine", 210000, dateFin3, setEntreprise3,
+				listEntreprise.get(1), 170));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(6));
+		listDallage.add(new Dallage(0, dateDebut4, 1, 190000, "termine", 200000, dateFin4, setEntreprise4,
+				listEntreprise.get(6), 160));
 
 		Iterator<Dallage> iterator = listDallage.listIterator();
 		while (iterator.hasNext()) {
@@ -287,24 +346,38 @@ public class JeuDEssai {
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 6, 4);
 		Date dateDebut2 = new Date(116, 3, 22);
-		Date dateDebut3 = new Date(117, 7, 15);
-		Date dateDebut4 = new Date(117, 6, 22);
+		Date dateDebut3 = new Date(116, 7, 15);
+		Date dateDebut4 = new Date(116, 6, 22);
 
-		Date dateFin3 = new Date(117, 8, 5);
+		Date dateFin3 = new Date(116, 8, 5);
 		Date dateFin4 = new Date(117, 3, 22);
 
 		ArrayList<Menuiseries> listMenuiseries = new ArrayList<Menuiseries>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(5));
-		setEntreprise1.add(listEntreprise.get(4));
+		setEntreprise1.add(listEntreprise.get(9));
+		setEntreprise1.add(listEntreprise.get(15));
 		listMenuiseries.add(new Menuiseries(0, dateDebut1, 2, 120000, "enCours", 150000, null, setEntreprise1,
-				listEntreprise.get(5), 10, 4, 2));
+				listEntreprise.get(15), 10, 4, 2));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(12));
+		setEntreprise2.add(listEntreprise.get(16));
 		listMenuiseries.add(new Menuiseries(0, dateDebut2, 7, 160000, "enCours", 200000, null, setEntreprise2,
-				listEntreprise.get(12), 7, 3, 1));
+				listEntreprise.get(16), 7, 3, 1));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(17));
+		setEntreprise3.add(listEntreprise.get(9));
+		listMenuiseries.add(new Menuiseries(0, dateDebut3, 1, 100000, "termine", 100000, dateFin3, setEntreprise3,
+				listEntreprise.get(17), 2, 4, 2));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(17));
+		setEntreprise4.add(listEntreprise.get(9));
+		setEntreprise4.add(listEntreprise.get(15));
+		setEntreprise4.add(listEntreprise.get(16));
+		listMenuiseries.add(new Menuiseries(0, dateDebut4, 9, 200000, "termine", 220000, dateFin4, setEntreprise4,
+				listEntreprise.get(9), 8, 6, 5));
 
 		Iterator<Menuiseries> iterator = listMenuiseries.listIterator();
 		while (iterator.hasNext()) {
@@ -362,16 +435,29 @@ public class JeuDEssai {
 		ArrayList<Maconnerie> listMaconnerie = new ArrayList<Maconnerie>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(8));
-		setEntreprise1.add(listEntreprise.get(9));
+		setEntreprise1.add(listEntreprise.get(2));
+		setEntreprise1.add(listEntreprise.get(18));
 		listMaconnerie.add(new Maconnerie(0, dateDebut1, 10, 300000, "enCours", 300000, null, setEntreprise1,
-				listEntreprise.get(9), 300, 7));
+				listEntreprise.get(2), 300, 7));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(5));
-		setEntreprise2.add(listEntreprise.get(7));
+		setEntreprise2.add(listEntreprise.get(19));
+		setEntreprise2.add(listEntreprise.get(2));
 		listMaconnerie.add(new Maconnerie(0, dateDebut2, 7, 200000, "enCours", 190000, null, setEntreprise2,
-				listEntreprise.get(7), 150, 4));
+				listEntreprise.get(19), 150, 4));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(19));
+		setEntreprise3.add(listEntreprise.get(18));
+		listMaconnerie.add(new Maconnerie(0, dateDebut3, 1, 220000, "termine", 210000, dateFin3, setEntreprise3,
+				listEntreprise.get(18), 170, 6));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(19));
+		setEntreprise4.add(listEntreprise.get(18));
+		setEntreprise4.add(listEntreprise.get(2));
+		listMaconnerie.add(new Maconnerie(0, dateDebut4, 6, 250000, "termine", 260000, dateFin4, setEntreprise4,
+				listEntreprise.get(2), 210, 7));
 
 		Iterator<Maconnerie> iterator = listMaconnerie.listIterator();
 		while (iterator.hasNext()) {
