@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
+import enumeration.ECharpente;
 import enumeration.ECorpsMetier;
 import enumeration.EStatut;
 import enumeration.ETitre;
@@ -16,10 +17,16 @@ import enumeration.ETypeAppart;
 import modele.Acteur;
 import modele.Adresse;
 import modele.Appartement;
+import modele.Charpente;
 import modele.Dallage;
+import modele.Electricite;
 import modele.Entreprise;
 import modele.Fondation;
+import modele.Maconnerie;
 import modele.Menuiseries;
+import modele.Peinture;
+import modele.Platerie;
+import modele.Reseaux;
 import modele.Terrassement;
 
 public class JeuDEssai {
@@ -33,6 +40,12 @@ public class JeuDEssai {
 		ArrayList<Dallage> listDallage = jeuDallage(emf, em, listEntreprise);
 		ArrayList<Menuiseries> listMenuiseries = jeuMenuiseries(emf, em, listEntreprise);
 		ArrayList<Fondation> listFondation = jeuFondation(emf, em, listEntreprise);
+		ArrayList<Maconnerie> listMaconnerie = jeuMaconnerie(emf, em, listEntreprise);
+		ArrayList<Platerie> listPlaterie = jeuPlaterie(emf, em, listEntreprise);
+		ArrayList<Electricite> listElectricite = jeuElectricite(emf, em, listEntreprise);
+		ArrayList<Reseaux> listReseaux = jeuReseaux(emf, em, listEntreprise);
+		ArrayList<Peinture> listPeinture = jeuPeinture(emf, em, listEntreprise);
+		ArrayList<Charpente> listCharpente = jeuCharpente(emf, em, listEntreprise);
 	}
 
 	public static ArrayList<Acteur> jeuActeur(EntityManagerFactory emf, EntityManager em,
@@ -334,6 +347,205 @@ public class JeuDEssai {
 			em.getTransaction().commit();
 		}
 		return listFondation;
+	}
+	
+	public static ArrayList<Maconnerie> jeuMaconnerie(EntityManagerFactory emf, EntityManager em,
+			ArrayList<Entreprise> listEntreprise) {
+		Date dateDebut1 = new Date(117, 2, 7);
+		Date dateDebut2 = new Date(116, 9, 4);
+		Date dateDebut3 = new Date(117, 7, 17);
+		Date dateDebut4 = new Date(117, 3, 22);
+
+		Date dateFin3 = new Date(117, 8, 13);
+		Date dateFin4 = new Date(117, 9, 16);
+
+		ArrayList<Maconnerie> listMaconnerie = new ArrayList<Maconnerie>();
+
+		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
+		setEntreprise1.add(listEntreprise.get(8));
+		setEntreprise1.add(listEntreprise.get(9));
+		listMaconnerie.add(new Maconnerie(0, dateDebut1, 10, 300000, "enCours", 300000, null, setEntreprise1,
+				listEntreprise.get(9), 300, 7));
+
+		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
+		setEntreprise2.add(listEntreprise.get(5));
+		setEntreprise2.add(listEntreprise.get(7));
+		listMaconnerie.add(new Maconnerie(0, dateDebut2, 7, 200000, "enCours", 190000, null, setEntreprise2,
+				listEntreprise.get(7), 150, 4));
+
+		Iterator<Maconnerie> iterator = listMaconnerie.listIterator();
+		while (iterator.hasNext()) {
+			em.getTransaction().begin();
+			em.persist(iterator.next());
+			em.getTransaction().commit();
+		}
+		return listMaconnerie;
+	}
+	
+	public static ArrayList<Platerie> jeuPlaterie(EntityManagerFactory emf, EntityManager em,
+			ArrayList<Entreprise> listEntreprise) {
+		Date dateDebut1 = new Date(117, 3, 8);
+		Date dateDebut2 = new Date(116, 7, 14);
+		Date dateDebut3 = new Date(117, 8, 4);
+		Date dateDebut4 = new Date(117, 6, 1);
+
+		Date dateFin3 = new Date(117, 8, 15);
+		Date dateFin4 = new Date(117, 9, 14);
+
+		ArrayList<Platerie> listPlaterie = new ArrayList<Platerie>();
+
+		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
+		setEntreprise1.add(listEntreprise.get(12));
+		setEntreprise1.add(listEntreprise.get(13));
+		listPlaterie.add(new Platerie(0, dateDebut1, 4, 170000, "enCours", 200000, null, setEntreprise1,
+				listEntreprise.get(12), 210, 300));
+
+		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
+		setEntreprise2.add(listEntreprise.get(10));
+		setEntreprise2.add(listEntreprise.get(11));
+		listPlaterie.add(new Platerie(0, dateDebut2, 5, 160000, "enCours", 180000, null, setEntreprise2,
+				listEntreprise.get(10), 150, 210));
+
+		Iterator<Platerie> iterator = listPlaterie.listIterator();
+		while (iterator.hasNext()) {
+			em.getTransaction().begin();
+			em.persist(iterator.next());
+			em.getTransaction().commit();
+		}
+		return listPlaterie;
+	}
+	
+	public static ArrayList<Electricite> jeuElectricite(EntityManagerFactory emf, EntityManager em,
+			ArrayList<Entreprise> listEntreprise) {
+		Date dateDebut1 = new Date(117, 2, 2);
+		Date dateDebut2 = new Date(116, 4, 20);
+		Date dateDebut3 = new Date(117, 1, 14);
+		Date dateDebut4 = new Date(117, 5, 12);
+
+		Date dateFin3 = new Date(117, 10, 15);
+		Date dateFin4 = new Date(117, 4, 20);
+
+		ArrayList<Electricite> listElectricite = new ArrayList<Electricite>();
+
+		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
+		setEntreprise1.add(listEntreprise.get(4));
+		setEntreprise1.add(listEntreprise.get(13));
+		listElectricite.add(new Electricite(0, dateDebut1, 4, 160000, "enCours", 170000, null, setEntreprise1,
+				listEntreprise.get(4), 2, 40));
+
+		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
+		setEntreprise2.add(listEntreprise.get(3));
+		setEntreprise2.add(listEntreprise.get(7));
+		listElectricite.add(new Electricite(0, dateDebut2, 5, 160000, "enCours", 170000, null, setEntreprise2,
+				listEntreprise.get(7), 3, 20));
+
+		Iterator<Electricite> iterator = listElectricite.listIterator();
+		while (iterator.hasNext()) {
+			em.getTransaction().begin();
+			em.persist(iterator.next());
+			em.getTransaction().commit();
+		}
+		return listElectricite;
+	}
+	
+	public static ArrayList<Reseaux> jeuReseaux(EntityManagerFactory emf, EntityManager em,
+			ArrayList<Entreprise> listEntreprise) {
+		Date dateDebut1 = new Date(117, 2, 14);
+		Date dateDebut2 = new Date(116, 3, 7);
+		Date dateDebut3 = new Date(117, 6, 25);
+		Date dateDebut4 = new Date(117, 7, 23);
+
+		Date dateFin3 = new Date(117, 7, 5);
+		Date dateFin4 = new Date(117, 8, 12);
+
+		ArrayList<Reseaux> listReseaux = new ArrayList<Reseaux>();
+
+		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
+		setEntreprise1.add(listEntreprise.get(12));
+		setEntreprise1.add(listEntreprise.get(13));
+		listReseaux.add(new Reseaux(0, dateDebut1, 4, 160000, "enCours", 160000, null, setEntreprise1,
+				listEntreprise.get(12), 200));
+
+		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
+		setEntreprise2.add(listEntreprise.get(14));
+		setEntreprise2.add(listEntreprise.get(3));
+		listReseaux.add(new Reseaux(0, dateDebut2, 5, 150000, "enCours", 140000, null, setEntreprise2,
+				listEntreprise.get(14), 170));
+
+		Iterator<Reseaux> iterator = listReseaux.listIterator();
+		while (iterator.hasNext()) {
+			em.getTransaction().begin();
+			em.persist(iterator.next());
+			em.getTransaction().commit();
+		}
+		return listReseaux;
+	}
+	
+	public static ArrayList<Peinture> jeuPeinture(EntityManagerFactory emf, EntityManager em,
+			ArrayList<Entreprise> listEntreprise) {
+		Date dateDebut1 = new Date(117, 4, 12);
+		Date dateDebut2 = new Date(116, 2, 27);
+		Date dateDebut3 = new Date(117, 3, 25);
+		Date dateDebut4 = new Date(117, 7, 9);
+
+		Date dateFin3 = new Date(117, 8, 25);
+		Date dateFin4 = new Date(117, 9, 2);
+
+		ArrayList<Peinture> listPeinture = new ArrayList<Peinture>();
+
+		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
+		setEntreprise1.add(listEntreprise.get(9));
+		setEntreprise1.add(listEntreprise.get(2));
+		listPeinture.add(new Peinture(0, dateDebut1, 4, 180000, "enCours", 190000, null, setEntreprise1,
+				listEntreprise.get(2), 200));
+
+		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
+		setEntreprise2.add(listEntreprise.get(10));
+		setEntreprise2.add(listEntreprise.get(11));
+		setEntreprise2.add(listEntreprise.get(12));
+		listPeinture.add(new Peinture(0, dateDebut2, 5, 160000, "enCours", 160000, null, setEntreprise2,
+				listEntreprise.get(11), 170));
+
+		Iterator<Peinture> iterator = listPeinture.listIterator();
+		while (iterator.hasNext()) {
+			em.getTransaction().begin();
+			em.persist(iterator.next());
+			em.getTransaction().commit();
+		}
+		return listPeinture;
+	}
+	
+	public static ArrayList<Charpente> jeuCharpente(EntityManagerFactory emf, EntityManager em,
+			ArrayList<Entreprise> listEntreprise) {
+		Date dateDebut1 = new Date(117, 4, 5);
+		Date dateDebut2 = new Date(116, 1, 20);
+		Date dateDebut3 = new Date(117, 9, 13);
+		Date dateDebut4 = new Date(117, 8, 23);
+
+		Date dateFin3 = new Date(117, 9, 12);
+		Date dateFin4 = new Date(117, 10, 25);
+
+		ArrayList<Charpente> listCharpente = new ArrayList<Charpente>();
+
+		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
+		setEntreprise1.add(listEntreprise.get(14));
+		setEntreprise1.add(listEntreprise.get(13));
+		listCharpente.add(new Charpente(0, dateDebut1, 4, 110000, "enCours", 120000, null, setEntreprise1,
+				listEntreprise.get(14), ECharpente.traditionnelle));
+
+		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
+		setEntreprise2.add(listEntreprise.get(8));
+		setEntreprise2.add(listEntreprise.get(9));
+		listCharpente.add(new Charpente(0, dateDebut2, 5, 90000, "enCours", 100000, null, setEntreprise2,
+				listEntreprise.get(8), ECharpente.toitPlat));
+
+		Iterator<Charpente> iterator = listCharpente.listIterator();
+		while (iterator.hasNext()) {
+			em.getTransaction().begin();
+			em.persist(iterator.next());
+			em.getTransaction().commit();
+		}
+		return listCharpente;
 	}
 
 	public void ProjetsTermines() {
