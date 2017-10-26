@@ -76,6 +76,8 @@ public class JeuDEssai {
 		listActeur.add(new Acteur("actDocteur4", ETitre.docteur, EStatut.responsable, listEntreprise.get(7), null));
 		listActeur.add(new Acteur("actDocteur5", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(8), null));
 		listActeur.add(new Acteur("actDocteur6", ETitre.docteur, EStatut.responsable, listEntreprise.get(9), null));
+		listActeur.add(new Acteur("actDocteur7", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(23), null));
+		listActeur.add(new Acteur("actDocteur8", ETitre.docteur, EStatut.responsable, listEntreprise.get(23), null));
 		listActeur.add(new Acteur("actIng1", ETitre.ingenieur, EStatut.BIM_Manager, listEntreprise.get(10), null));
 		listActeur.add(new Acteur("actIng2", ETitre.ingenieur, EStatut.employe, listEntreprise.get(4), null));
 		listActeur.add(new Acteur("actIng3", ETitre.ingenieur, EStatut.employe, listEntreprise.get(4), null));
@@ -98,6 +100,8 @@ public class JeuDEssai {
 		listActeur.add(new Acteur("actIng20", ETitre.ingenieur, EStatut.BIM_Manager, listEntreprise.get(20), null));
 		listActeur.add(new Acteur("actIng21", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20), null));
 		listActeur.add(new Acteur("actIng22", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20), null));
+		listActeur.add(new Acteur("actIng23", ETitre.ingenieur, EStatut.responsable, listEntreprise.get(22), null));
+		listActeur.add(new Acteur("actIng24", ETitre.ingenieur, EStatut.employe, listEntreprise.get(22), null));
 		listActeur.add(new Acteur("actTech1", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(12), null));
 		listActeur.add(new Acteur("actTech2", ETitre.technicien, EStatut.employe, listEntreprise.get(11), null));
 		listActeur.add(new Acteur("actTech3", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(11), null));
@@ -117,6 +121,7 @@ public class JeuDEssai {
 		listActeur.add(new Acteur("actTech17", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(21), null));
 		listActeur.add(new Acteur("actTech18", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21), null));
 		listActeur.add(new Acteur("actTech19", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21), null));
+		listActeur.add(new Acteur("actTech20", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(23), null));
 		Iterator<Acteur> iterator = listActeur.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -166,6 +171,8 @@ public class JeuDEssai {
 		listAdresse.add(new Adresse(0, 51, "rue de la menagerie", 62240, "Courset"));
 		listAdresse.add(new Adresse(0, 15, "rue de la vie", 05600, "Ceillac"));
 		listAdresse.add(new Adresse(0, 26, "rue de la miage", 59222, "Bousies"));
+		listAdresse.add(new Adresse(0, 26, "rue des glacis", 41600, "Vouzon"));
+		listAdresse.add(new Adresse(0, 32, "rue de la paix", 57930, "Postroff"));
 		Iterator<Adresse> iterator = listAdresse.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -217,6 +224,10 @@ public class JeuDEssai {
 		.add(new Entreprise(0, "Serre u riait", ECorpsMetier.serrurier, "0148596632", null, listAdresse.get(20)));
 		listEntreprise
 		.add(new Entreprise(0, "Azerty", ECorpsMetier.serrurier, "0365478921", null, listAdresse.get(21)));
+		listEntreprise
+		.add(new Entreprise(0, "A couvert", ECorpsMetier.couvreur, "0402840293", null, listAdresse.get(22)));
+		listEntreprise
+		.add(new Entreprise(0, "Couverture", ECorpsMetier.couvreur, "0234683957", null, listAdresse.get(23)));
 		Iterator<Entreprise> iterator = listEntreprise.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -395,23 +406,35 @@ public class JeuDEssai {
 		Date dateDebut3 = new Date(117, 6, 24);
 		Date dateDebut4 = new Date(117, 7, 2);
 
-		Date dateFin3 = new Date(117, 12, 25);
+		Date dateFin3 = new Date(117, 11, 25);
 		Date dateFin4 = new Date(117, 9, 23);
 
 		ArrayList<Fondation> listFondation = new ArrayList<Fondation>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(14));
-		setEntreprise1.add(listEntreprise.get(13));
+		setEntreprise1.add(listEntreprise.get(0));
+		setEntreprise1.add(listEntreprise.get(22));
 		listFondation.add(new Fondation(0, dateDebut1, 4, 150000, "enCours", 200000, null, setEntreprise1,
 				listEntreprise.get(0), 180));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(11));
-		setEntreprise2.add(listEntreprise.get(3));
-		setEntreprise2.add(listEntreprise.get(4));
+		setEntreprise2.add(listEntreprise.get(0));
+		setEntreprise2.add(listEntreprise.get(22));
+		setEntreprise2.add(listEntreprise.get(23));
 		listFondation.add(new Fondation(0, dateDebut2, 5, 160000, "enCours", 180000, null, setEntreprise2,
-				listEntreprise.get(2), 170));
+				listEntreprise.get(23), 170));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(0));
+		setEntreprise3.add(listEntreprise.get(23));
+		listFondation.add(new Fondation(0, dateDebut3, 5, 170000, "termine", 180000, dateFin3, setEntreprise3,
+				listEntreprise.get(0), 180));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(22));
+		setEntreprise4.add(listEntreprise.get(23));
+		listFondation.add(new Fondation(0, dateDebut4, 2, 110000, "termine", 120000, dateFin4, setEntreprise4,
+				listEntreprise.get(22), 100));
 
 		Iterator<Fondation> iterator = listFondation.listIterator();
 		while (iterator.hasNext()) {
@@ -475,22 +498,32 @@ public class JeuDEssai {
 		Date dateDebut3 = new Date(117, 8, 4);
 		Date dateDebut4 = new Date(117, 6, 1);
 
-		Date dateFin3 = new Date(117, 8, 15);
+		Date dateFin3 = new Date(117, 9, 15);
 		Date dateFin4 = new Date(117, 9, 14);
 
 		ArrayList<Platerie> listPlaterie = new ArrayList<Platerie>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(12));
+		setEntreprise1.add(listEntreprise.get(7));
 		setEntreprise1.add(listEntreprise.get(13));
 		listPlaterie.add(new Platerie(0, dateDebut1, 4, 170000, "enCours", 200000, null, setEntreprise1,
-				listEntreprise.get(12), 210, 300));
+				listEntreprise.get(13), 210, 300));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(10));
-		setEntreprise2.add(listEntreprise.get(11));
+		setEntreprise2.add(listEntreprise.get(7));
+		setEntreprise2.add(listEntreprise.get(13));
 		listPlaterie.add(new Platerie(0, dateDebut2, 5, 160000, "enCours", 180000, null, setEntreprise2,
-				listEntreprise.get(10), 150, 210));
+				listEntreprise.get(7), 150, 210));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(7));
+		listPlaterie.add(new Platerie(0, dateDebut3, 1, 60000, "termine", 80000, dateFin3, setEntreprise3,
+				listEntreprise.get(7), 50, 70));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(13));
+		listPlaterie.add(new Platerie(0, dateDebut4, 3, 100000, "termine", 100000, dateFin4, setEntreprise4,
+				listEntreprise.get(13), 80, 90));
 
 		Iterator<Platerie> iterator = listPlaterie.listIterator();
 		while (iterator.hasNext()) {
@@ -515,15 +548,21 @@ public class JeuDEssai {
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
 		setEntreprise1.add(listEntreprise.get(4));
-		setEntreprise1.add(listEntreprise.get(13));
+		setEntreprise1.add(listEntreprise.get(10));
 		listElectricite.add(new Electricite(0, dateDebut1, 4, 160000, "enCours", 170000, null, setEntreprise1,
 				listEntreprise.get(4), 2, 40));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(3));
-		setEntreprise2.add(listEntreprise.get(7));
+		setEntreprise2.add(listEntreprise.get(4));
+		setEntreprise2.add(listEntreprise.get(10));
 		listElectricite.add(new Electricite(0, dateDebut2, 5, 160000, "enCours", 170000, null, setEntreprise2,
-				listEntreprise.get(7), 3, 20));
+				listEntreprise.get(10), 3, 20));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(4));
+		setEntreprise3.add(listEntreprise.get(10));
+		listElectricite.add(new Electricite(0, dateDebut3, 9, 180000, "termine", 170000, null, setEntreprise3,
+				listEntreprise.get(10), 4, 21));
 
 		Iterator<Electricite> iterator = listElectricite.listIterator();
 		while (iterator.hasNext()) {
@@ -547,16 +586,27 @@ public class JeuDEssai {
 		ArrayList<Reseaux> listReseaux = new ArrayList<Reseaux>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(12));
-		setEntreprise1.add(listEntreprise.get(13));
+		setEntreprise1.add(listEntreprise.get(5));
+		setEntreprise1.add(listEntreprise.get(20));
 		listReseaux.add(new Reseaux(0, dateDebut1, 4, 160000, "enCours", 160000, null, setEntreprise1,
-				listEntreprise.get(12), 200));
+				listEntreprise.get(5), 200));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(14));
-		setEntreprise2.add(listEntreprise.get(3));
+		setEntreprise2.add(listEntreprise.get(21));
+		setEntreprise2.add(listEntreprise.get(20));
 		listReseaux.add(new Reseaux(0, dateDebut2, 5, 150000, "enCours", 140000, null, setEntreprise2,
-				listEntreprise.get(14), 170));
+				listEntreprise.get(20), 170));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(5));
+		setEntreprise3.add(listEntreprise.get(21));
+		listReseaux.add(new Reseaux(0, dateDebut3, 1, 100000, "termine", 110000, dateFin3, setEntreprise3,
+				listEntreprise.get(21), 100));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(5));
+		listReseaux.add(new Reseaux(0, dateDebut4, 1, 110000, "termine", 110000, dateFin4, setEntreprise4,
+				listEntreprise.get(5), 110));
 
 		Iterator<Reseaux> iterator = listReseaux.listIterator();
 		while (iterator.hasNext()) {
@@ -580,17 +630,28 @@ public class JeuDEssai {
 		ArrayList<Peinture> listPeinture = new ArrayList<Peinture>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(9));
-		setEntreprise1.add(listEntreprise.get(2));
+		setEntreprise1.add(listEntreprise.get(8));
+		setEntreprise1.add(listEntreprise.get(14));
 		listPeinture.add(new Peinture(0, dateDebut1, 4, 180000, "enCours", 190000, null, setEntreprise1,
-				listEntreprise.get(2), 200));
+				listEntreprise.get(8), 200));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(10));
-		setEntreprise2.add(listEntreprise.get(11));
-		setEntreprise2.add(listEntreprise.get(12));
+		setEntreprise2.add(listEntreprise.get(8));
+		setEntreprise2.add(listEntreprise.get(14));
 		listPeinture.add(new Peinture(0, dateDebut2, 5, 160000, "enCours", 160000, null, setEntreprise2,
-				listEntreprise.get(11), 170));
+				listEntreprise.get(14), 170));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(8));
+		setEntreprise3.add(listEntreprise.get(14));
+		listPeinture.add(new Peinture(0, dateDebut3, 5, 150000, "enCours", 160000, dateFin3, setEntreprise3,
+				listEntreprise.get(14), 160));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(8));
+		setEntreprise4.add(listEntreprise.get(14));
+		listPeinture.add(new Peinture(0, dateDebut4, 5, 180000, "enCours", 170000, dateFin4, setEntreprise4,
+				listEntreprise.get(8), 190));
 
 		Iterator<Peinture> iterator = listPeinture.listIterator();
 		while (iterator.hasNext()) {
@@ -608,22 +669,30 @@ public class JeuDEssai {
 		Date dateDebut3 = new Date(117, 9, 13);
 		Date dateDebut4 = new Date(117, 8, 23);
 
-		Date dateFin3 = new Date(117, 9, 12);
+		Date dateFin3 = new Date(117, 10, 12);
 		Date dateFin4 = new Date(117, 10, 25);
 
 		ArrayList<Charpente> listCharpente = new ArrayList<Charpente>();
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
-		setEntreprise1.add(listEntreprise.get(14));
-		setEntreprise1.add(listEntreprise.get(13));
+		setEntreprise1.add(listEntreprise.get(11));
 		listCharpente.add(new Charpente(0, dateDebut1, 4, 110000, "enCours", 120000, null, setEntreprise1,
-				listEntreprise.get(14), ECharpente.traditionnelle));
+				listEntreprise.get(11), ECharpente.traditionnelle));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(8));
-		setEntreprise2.add(listEntreprise.get(9));
+		setEntreprise2.add(listEntreprise.get(11));
 		listCharpente.add(new Charpente(0, dateDebut2, 5, 90000, "enCours", 100000, null, setEntreprise2,
-				listEntreprise.get(8), ECharpente.toitPlat));
+				listEntreprise.get(11), ECharpente.toitPlat));
+		
+		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
+		setEntreprise3.add(listEntreprise.get(11));
+		listCharpente.add(new Charpente(0, dateDebut3, 1, 70000, "termine", 80000, dateFin3, setEntreprise3,
+				listEntreprise.get(11), ECharpente.fermette));
+		
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(11));
+		listCharpente.add(new Charpente(0, dateDebut4, 2, 100000, "termine", 100000, dateFin4, setEntreprise4,
+				listEntreprise.get(11), ECharpente.traditionnelle));
 
 		Iterator<Charpente> iterator = listCharpente.listIterator();
 		while (iterator.hasNext()) {
