@@ -11,6 +11,7 @@ import javax.persistence.EntityManagerFactory;
 
 import enumeration.ECharpente;
 import enumeration.ECorpsMetier;
+import enumeration.EEtaScolaire;
 import enumeration.EStatut;
 import enumeration.ETitre;
 import enumeration.ETypeAppart;
@@ -21,9 +22,13 @@ import modele.Charpente;
 import modele.Dallage;
 import modele.Electricite;
 import modele.Entreprise;
+import modele.EtablissementScolaire;
 import modele.Fondation;
+import modele.Immeuble;
+import modele.Lot;
 import modele.Maconnerie;
 import modele.Menuiseries;
+import modele.Musee;
 import modele.Peinture;
 import modele.Platerie;
 import modele.Reseaux;
@@ -46,6 +51,8 @@ public class JeuDEssai {
 		ArrayList<Reseaux> listReseaux = jeuReseaux(emf, em, listEntreprise);
 		ArrayList<Peinture> listPeinture = jeuPeinture(emf, em, listEntreprise);
 		ArrayList<Charpente> listCharpente = jeuCharpente(emf, em, listEntreprise);
+		projetsEnCours(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries, listActeur, 
+				listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture);
 	}
 
 	public static ArrayList<Acteur> jeuActeur(EntityManagerFactory emf, EntityManager em,
@@ -703,7 +710,7 @@ public class JeuDEssai {
 		return listCharpente;
 	}
 
-	public void ProjetsTermines() {
+	public void projetsTermines() {
 		lotissementTermine();
 		immeubleTermine();
 		hopitalTermine();
@@ -726,21 +733,83 @@ public class JeuDEssai {
 
 	}
 
-	public void ProjetsEnCours() {
-		etablissementScolaireEnCours();
-		immeubleEnCours();
-		museeEnCours();
+	public static void projetsEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse, ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement, 
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Acteur> listActeur, ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, 
+			ArrayList<Platerie> listPlaterie, ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, 
+			ArrayList<Peinture> listPeinture) {
+		etablissementScolaireEnCours(emf, em, listAdresse);
+		immeubleEnCours(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries, listFondation);
+		museeEnCours(emf, em, listAdresse, listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture);
 	}
 
-	private void museeEnCours() {
-
+	private static void museeEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse, 
+			ArrayList<Acteur> listActeur, ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, 
+			ArrayList<Platerie> listPlaterie, ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, 
+			ArrayList<Peinture> listPeinture) {
+		Date dateFin = new Date(118, 2, 25);
+		
+		Set<Acteur> setActeur = new HashSet<Acteur>();
+		for (int i = 0; i < 15; i++)
+			setActeur.add(listActeur.get(i));
+		
+		Set<Lot> setLot = new HashSet<Lot>();
+		setLot.add(listFondation.get(1));
+		setLot.add(listMaconnerie.get(0));
+		setLot.add(listMaconnerie.get(1));
+		setLot.add(listPlaterie.get(0));
+		setLot.add(listPlaterie.get(1));
+		setLot.add(listElectricite.get(0));
+		setLot.add(listElectricite.get(1));
+		setLot.add(listReseaux.get(0));
+		setLot.add(listReseaux.get(1));
+		setLot.add(listPeinture.get(0));
+		
+		
+		Musee projetMusee = new Musee(0, "transformation", 789, "enCours", dateFin,
+				1456000, false, null, setActeur, listAdresse.get(2),
+				setLot, "culture", 18);
+		
+		em.getTransaction().begin();
+		em.persist(projetMusee);
+		em.getTransaction().commit();
 	}
 
-	private void immeubleEnCours() {
-
+	private static void immeubleEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse, 
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement, ArrayList<Dallage> listDallage, 
+			ArrayList<Menuiseries> listMenuiseries, ArrayList<Fondation> listFondation) {
+		Date dateFin = new Date(118, 8, 10);
+		
+		Set<Lot> setLot = new HashSet<Lot>();
+		setLot.add(listTerrassement.get(0));
+		setLot.add(listTerrassement.get(1));
+		setLot.add(listDallage.get(0));
+		setLot.add(listDallage.get(1));
+		setLot.add(listMenuiseries.get(0));
+		setLot.add(listMenuiseries.get(1));
+		setLot.add(listFondation.get(0));
+		
+		
+		Set<Appartement> setAppartement = new HashSet<Appartement>();
+		for (int i = 0; i < 8; i++)
+			setAppartement.add(listAppartement.get(i));
+		
+		
+		Immeuble projetImmeuble = new Immeuble(0, "renovation", 435, "enCours", dateFin,
+				628000, false, null, null, listAdresse.get(1),
+				setLot, 5, setAppartement);
+		em.getTransaction().begin();
+		em.persist(projetImmeuble);
+		em.getTransaction().commit();
 	}
 
-	private void etablissementScolaireEnCours() {
+	private static void etablissementScolaireEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse) {
+		Date dateFin = new Date(118, 6, 10);
 
+		EtablissementScolaire projetEtaScol = new EtablissementScolaire(0, "restructuration", 540, "enCours", dateFin,
+				500000, false, null, null, listAdresse.get(0),
+				null, "education", 348, EEtaScolaire.lycee);
+		em.getTransaction().begin();
+		em.persist(projetEtaScol);
+		em.getTransaction().commit();
 	}
 }
