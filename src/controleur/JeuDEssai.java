@@ -31,6 +31,7 @@ import modele.Menuiseries;
 import modele.Musee;
 import modele.Peinture;
 import modele.Platerie;
+import modele.Projet;
 import modele.Reseaux;
 import modele.Terrassement;
 
@@ -51,84 +52,159 @@ public class JeuDEssai {
 		ArrayList<Reseaux> listReseaux = jeuReseaux(emf, em, listEntreprise);
 		ArrayList<Peinture> listPeinture = jeuPeinture(emf, em, listEntreprise);
 		ArrayList<Charpente> listCharpente = jeuCharpente(emf, em, listEntreprise);
-		projetsEnCours(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries, listActeur, 
-				listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture);
+		projetsEnCours(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries,
+				listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture,
+				listCharpente);
+		projetsTermines(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries,
+				listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture,
+				listCharpente);
 	}
 
 	public static ArrayList<Acteur> jeuActeur(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		ArrayList<Acteur> listActeur = new ArrayList<Acteur>();
-		listActeur.add(new Acteur("actArchi1", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(0), null));
-		listActeur.add(new Acteur("actArchi2", ETitre.architecte, EStatut.chef_d_equipe, listEntreprise.get(1), null));
-		listActeur.add(new Acteur("actArchi3", ETitre.architecte, EStatut.directeur, listEntreprise.get(2), null));
-		listActeur.add(new Acteur("actArchi4", ETitre.architecte, EStatut.responsable, listEntreprise.get(3), null));
-		listActeur.add(new Acteur("actArchi5", ETitre.architecte, EStatut.employe, listEntreprise.get(0), null));
-		listActeur.add(new Acteur("actArchi6", ETitre.architecte, EStatut.employe, listEntreprise.get(0), null));
-		listActeur.add(new Acteur("actArchi7", ETitre.architecte, EStatut.employe, listEntreprise.get(1), null));
-		listActeur.add(new Acteur("actArchi8", ETitre.architecte, EStatut.employe, listEntreprise.get(1), null));
-		listActeur.add(new Acteur("actArchi9", ETitre.architecte, EStatut.employe, listEntreprise.get(2), null));
-		listActeur.add(new Acteur("actArchi10", ETitre.architecte, EStatut.employe, listEntreprise.get(2), null));
-		listActeur.add(new Acteur("actArchi11", ETitre.architecte, EStatut.employe, listEntreprise.get(3), null));
-		listActeur.add(new Acteur("actArchi12", ETitre.architecte, EStatut.employe, listEntreprise.get(3), null));
-		listActeur.add(new Acteur("actArchi13", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(15), null));
-		listActeur.add(new Acteur("actArchi14", ETitre.architecte, EStatut.employe, listEntreprise.get(15), null));
-		listActeur.add(new Acteur("actArchi15", ETitre.architecte, EStatut.directeur, listEntreprise.get(16), null));
-		listActeur.add(new Acteur("actArchi16", ETitre.architecte, EStatut.responsable, listEntreprise.get(17), null));
-		listActeur.add(new Acteur("actArchi17", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(18), null));
-		listActeur.add(new Acteur("actArchi18", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(19), null));
-		listActeur.add(new Acteur("actArchi19", ETitre.architecte, EStatut.employe, listEntreprise.get(18), null));
-		listActeur.add(new Acteur("actDocteur1", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(4), null));
-		listActeur.add(new Acteur("actDocteur2", ETitre.docteur, EStatut.responsable, listEntreprise.get(5), null));
-		listActeur.add(new Acteur("actDocteur3", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(6), null));
-		listActeur.add(new Acteur("actDocteur4", ETitre.docteur, EStatut.responsable, listEntreprise.get(7), null));
-		listActeur.add(new Acteur("actDocteur5", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(8), null));
-		listActeur.add(new Acteur("actDocteur6", ETitre.docteur, EStatut.responsable, listEntreprise.get(9), null));
-		listActeur.add(new Acteur("actDocteur7", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(23), null));
-		listActeur.add(new Acteur("actDocteur8", ETitre.docteur, EStatut.responsable, listEntreprise.get(23), null));
-		listActeur.add(new Acteur("actIng1", ETitre.ingenieur, EStatut.BIM_Manager, listEntreprise.get(10), null));
-		listActeur.add(new Acteur("actIng2", ETitre.ingenieur, EStatut.employe, listEntreprise.get(4), null));
-		listActeur.add(new Acteur("actIng3", ETitre.ingenieur, EStatut.employe, listEntreprise.get(4), null));
-		listActeur.add(new Acteur("actIng4", ETitre.ingenieur, EStatut.responsable, listEntreprise.get(11), null));
-		listActeur.add(new Acteur("actIng5", ETitre.ingenieur, EStatut.employe, listEntreprise.get(5), null));
-		listActeur.add(new Acteur("actIng6", ETitre.ingenieur, EStatut.employe, listEntreprise.get(5), null));
-		listActeur.add(new Acteur("actIng7", ETitre.ingenieur, EStatut.employe, listEntreprise.get(6), null));
-		listActeur.add(new Acteur("actIng8", ETitre.ingenieur, EStatut.employe, listEntreprise.get(6), null));
-		listActeur.add(new Acteur("actIng9", ETitre.ingenieur, EStatut.employe, listEntreprise.get(7), null));
-		listActeur.add(new Acteur("actIng10", ETitre.ingenieur, EStatut.employe, listEntreprise.get(7), null));
-		listActeur.add(new Acteur("actIng11", ETitre.ingenieur, EStatut.employe, listEntreprise.get(8), null));
-		listActeur.add(new Acteur("actIng12", ETitre.ingenieur, EStatut.employe, listEntreprise.get(8), null));
-		listActeur.add(new Acteur("actIng13", ETitre.ingenieur, EStatut.employe, listEntreprise.get(9), null));
-		listActeur.add(new Acteur("actIng14", ETitre.ingenieur, EStatut.employe, listEntreprise.get(9), null));
-		listActeur.add(new Acteur("actIng15", ETitre.ingenieur, EStatut.employe, listEntreprise.get(10), null));
-		listActeur.add(new Acteur("actIng16", ETitre.ingenieur, EStatut.employe, listEntreprise.get(10), null));
-		listActeur.add(new Acteur("actIng17", ETitre.ingenieur, EStatut.employe, listEntreprise.get(16), null));
-		listActeur.add(new Acteur("actIng18", ETitre.ingenieur, EStatut.employe, listEntreprise.get(16), null));
-		listActeur.add(new Acteur("actIng19", ETitre.ingenieur, EStatut.employe, listEntreprise.get(18), null));
-		listActeur.add(new Acteur("actIng20", ETitre.ingenieur, EStatut.BIM_Manager, listEntreprise.get(20), null));
-		listActeur.add(new Acteur("actIng21", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20), null));
-		listActeur.add(new Acteur("actIng22", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20), null));
-		listActeur.add(new Acteur("actIng23", ETitre.ingenieur, EStatut.responsable, listEntreprise.get(22), null));
-		listActeur.add(new Acteur("actIng24", ETitre.ingenieur, EStatut.employe, listEntreprise.get(22), null));
-		listActeur.add(new Acteur("actTech1", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(12), null));
-		listActeur.add(new Acteur("actTech2", ETitre.technicien, EStatut.employe, listEntreprise.get(11), null));
-		listActeur.add(new Acteur("actTech3", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(11), null));
-		listActeur.add(new Acteur("actTech4", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(12), null));
-		listActeur.add(new Acteur("actTech5", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(12), null));
-		listActeur.add(new Acteur("actTech6", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(13), null));
-		listActeur.add(new Acteur("actTech7", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(13), null));
-		listActeur.add(new Acteur("actTech8", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(14), null));
-		listActeur.add(new Acteur("actTech9", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(14), null));
-		listActeur.add(new Acteur("actTech10", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(13), null));
-		listActeur.add(new Acteur("actTech11", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(14), null));
-		listActeur.add(new Acteur("actTech12", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(15), null));
-		listActeur.add(new Acteur("actTech13", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(17), null));
-		listActeur.add(new Acteur("actTech14", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(17), null));
-		listActeur.add(new Acteur("actTech15", ETitre.technicien, EStatut.employe, listEntreprise.get(19), null));
-		listActeur.add(new Acteur("actTech16", ETitre.technicien, EStatut.employe, listEntreprise.get(19), null));
-		listActeur.add(new Acteur("actTech17", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(21), null));
-		listActeur.add(new Acteur("actTech18", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21), null));
-		listActeur.add(new Acteur("actTech19", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21), null));
-		listActeur.add(new Acteur("actTech20", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(23), null));
+		listActeur.add(new Acteur("actArchi1", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(0),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi2", ETitre.architecte, EStatut.chef_d_equipe, listEntreprise.get(1),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi3", ETitre.architecte, EStatut.directeur, listEntreprise.get(2),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi4", ETitre.architecte, EStatut.responsable, listEntreprise.get(3),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi5", ETitre.architecte, EStatut.employe, listEntreprise.get(0),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi6", ETitre.architecte, EStatut.employe, listEntreprise.get(0),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi7", ETitre.architecte, EStatut.employe, listEntreprise.get(1),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi8", ETitre.architecte, EStatut.employe, listEntreprise.get(1),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi9", ETitre.architecte, EStatut.employe, listEntreprise.get(2),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi10", ETitre.architecte, EStatut.employe, listEntreprise.get(2),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi11", ETitre.architecte, EStatut.employe, listEntreprise.get(3),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi12", ETitre.architecte, EStatut.employe, listEntreprise.get(3),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi13", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(15),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi14", ETitre.architecte, EStatut.employe, listEntreprise.get(15),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi15", ETitre.architecte, EStatut.directeur, listEntreprise.get(16),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi16", ETitre.architecte, EStatut.responsable, listEntreprise.get(17),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi17", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(18),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi18", ETitre.architecte, EStatut.BIM_Manager, listEntreprise.get(19),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actArchi19", ETitre.architecte, EStatut.employe, listEntreprise.get(18),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur1", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(4),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur2", ETitre.docteur, EStatut.responsable, listEntreprise.get(5),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur3", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(6),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur4", ETitre.docteur, EStatut.responsable, listEntreprise.get(7),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur5", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(8),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur6", ETitre.docteur, EStatut.responsable, listEntreprise.get(9),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur7", ETitre.docteur, EStatut.chef_d_equipe, listEntreprise.get(23),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actDocteur8", ETitre.docteur, EStatut.responsable, listEntreprise.get(23),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng1", ETitre.ingenieur, EStatut.BIM_Manager, listEntreprise.get(10),
+				new HashSet<Projet>()));
+		listActeur.add(
+				new Acteur("actIng2", ETitre.ingenieur, EStatut.employe, listEntreprise.get(4), new HashSet<Projet>()));
+		listActeur.add(
+				new Acteur("actIng3", ETitre.ingenieur, EStatut.employe, listEntreprise.get(4), new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng4", ETitre.ingenieur, EStatut.responsable, listEntreprise.get(11),
+				new HashSet<Projet>()));
+		listActeur.add(
+				new Acteur("actIng5", ETitre.ingenieur, EStatut.employe, listEntreprise.get(5), new HashSet<Projet>()));
+		listActeur.add(
+				new Acteur("actIng6", ETitre.ingenieur, EStatut.employe, listEntreprise.get(5), new HashSet<Projet>()));
+		listActeur.add(
+				new Acteur("actIng7", ETitre.ingenieur, EStatut.employe, listEntreprise.get(6), new HashSet<Projet>()));
+		listActeur.add(
+				new Acteur("actIng8", ETitre.ingenieur, EStatut.employe, listEntreprise.get(6), new HashSet<Projet>()));
+		listActeur.add(
+				new Acteur("actIng9", ETitre.ingenieur, EStatut.employe, listEntreprise.get(7), new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng10", ETitre.ingenieur, EStatut.employe, listEntreprise.get(7),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng11", ETitre.ingenieur, EStatut.employe, listEntreprise.get(8),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng12", ETitre.ingenieur, EStatut.employe, listEntreprise.get(8),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng13", ETitre.ingenieur, EStatut.employe, listEntreprise.get(9),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng14", ETitre.ingenieur, EStatut.employe, listEntreprise.get(9),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng15", ETitre.ingenieur, EStatut.employe, listEntreprise.get(10),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng16", ETitre.ingenieur, EStatut.employe, listEntreprise.get(10),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng17", ETitre.ingenieur, EStatut.employe, listEntreprise.get(16),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng18", ETitre.ingenieur, EStatut.employe, listEntreprise.get(16),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng19", ETitre.ingenieur, EStatut.employe, listEntreprise.get(18),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng20", ETitre.ingenieur, EStatut.BIM_Manager, listEntreprise.get(20),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng21", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng22", ETitre.ingenieur, EStatut.employe, listEntreprise.get(20),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng23", ETitre.ingenieur, EStatut.responsable, listEntreprise.get(22),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actIng24", ETitre.ingenieur, EStatut.employe, listEntreprise.get(22),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech1", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(12),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech2", ETitre.technicien, EStatut.employe, listEntreprise.get(11),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech3", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(11),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech4", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(12),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech5", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(12),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech6", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(13),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech7", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(13),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech8", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(14),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech9", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(14),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech10", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(13),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech11", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(14),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech12", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(15),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech13", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(17),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech14", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(17),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech15", ETitre.technicien, EStatut.employe, listEntreprise.get(19),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech16", ETitre.technicien, EStatut.employe, listEntreprise.get(19),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech17", ETitre.technicien, EStatut.chef_d_equipe, listEntreprise.get(21),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech18", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech19", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(21),
+				new HashSet<Projet>()));
+		listActeur.add(new Acteur("actTech20", ETitre.technicien, EStatut.ouvrier, listEntreprise.get(23),
+				new HashSet<Projet>()));
 		Iterator<Acteur> iterator = listActeur.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -220,21 +296,21 @@ public class JeuDEssai {
 				.add(new Entreprise(0, "Platre riait", ECorpsMetier.platrier, "0247896324", null, listAdresse.get(0)));
 		listEntreprise.add(new Entreprise(0, "Toto", ECorpsMetier.peintre, "0485963247", null, listAdresse.get(14)));
 		listEntreprise
-		.add(new Entreprise(0, "Menuition", ECorpsMetier.menuisier, "0348745961", null, listAdresse.get(15)));
+				.add(new Entreprise(0, "Menuition", ECorpsMetier.menuisier, "0348745961", null, listAdresse.get(15)));
 		listEntreprise
-		.add(new Entreprise(0, "Menuitieur", ECorpsMetier.menuisier, "0365874129", null, listAdresse.get(16)));
+				.add(new Entreprise(0, "Menuitieur", ECorpsMetier.menuisier, "0365874129", null, listAdresse.get(16)));
 		listEntreprise
-		.add(new Entreprise(0, "Menuimenui", ECorpsMetier.menuisier, "0548963274", null, listAdresse.get(17)));
+				.add(new Entreprise(0, "Menuimenui", ECorpsMetier.menuisier, "0548963274", null, listAdresse.get(17)));
 		listEntreprise.add(new Entreprise(0, "Macron", ECorpsMetier.macon, "0145236987", null, listAdresse.get(18)));
 		listEntreprise.add(new Entreprise(0, "Macron", ECorpsMetier.macon, "0145236987", null, listAdresse.get(19)));
+		listEntreprise.add(
+				new Entreprise(0, "Serre u riait", ECorpsMetier.serrurier, "0148596632", null, listAdresse.get(20)));
 		listEntreprise
-		.add(new Entreprise(0, "Serre u riait", ECorpsMetier.serrurier, "0148596632", null, listAdresse.get(20)));
+				.add(new Entreprise(0, "Azerty", ECorpsMetier.serrurier, "0365478921", null, listAdresse.get(21)));
 		listEntreprise
-		.add(new Entreprise(0, "Azerty", ECorpsMetier.serrurier, "0365478921", null, listAdresse.get(21)));
+				.add(new Entreprise(0, "A couvert", ECorpsMetier.couvreur, "0402840293", null, listAdresse.get(22)));
 		listEntreprise
-		.add(new Entreprise(0, "A couvert", ECorpsMetier.couvreur, "0402840293", null, listAdresse.get(22)));
-		listEntreprise
-		.add(new Entreprise(0, "Couverture", ECorpsMetier.couvreur, "0234683957", null, listAdresse.get(23)));
+				.add(new Entreprise(0, "Couverture", ECorpsMetier.couvreur, "0234683957", null, listAdresse.get(23)));
 		Iterator<Entreprise> iterator = listEntreprise.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -296,12 +372,12 @@ public class JeuDEssai {
 		setEntreprise2.add(listEntreprise.get(3));
 		listTerrassement.add(new Terrassement(0, dateDebut2, 5, 160000, "enCours", 180000, null, setEntreprise2,
 				listEntreprise.get(3), 150));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(12));
 		listTerrassement.add(new Terrassement(0, dateDebut3, 2, 140000, "termine", 150000, dateFin3, setEntreprise3,
 				listEntreprise.get(12), 130));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(12));
 		setEntreprise4.add(listEntreprise.get(3));
@@ -316,7 +392,7 @@ public class JeuDEssai {
 		}
 		return listTerrassement;
 	}
-	
+
 	public static ArrayList<Dallage> jeuDallage(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 7, 4);
@@ -340,12 +416,12 @@ public class JeuDEssai {
 		setEntreprise2.add(listEntreprise.get(1));
 		listDallage.add(new Dallage(0, dateDebut2, 7, 170000, "enCours", 180000, null, setEntreprise2,
 				listEntreprise.get(6), 130));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(1));
 		listDallage.add(new Dallage(0, dateDebut3, 2, 200000, "termine", 210000, dateFin3, setEntreprise3,
 				listEntreprise.get(1), 170));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(6));
 		listDallage.add(new Dallage(0, dateDebut4, 1, 190000, "termine", 200000, dateFin4, setEntreprise4,
@@ -359,7 +435,7 @@ public class JeuDEssai {
 		}
 		return listDallage;
 	}
-	
+
 	public static ArrayList<Menuiseries> jeuMenuiseries(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 6, 4);
@@ -382,13 +458,13 @@ public class JeuDEssai {
 		setEntreprise2.add(listEntreprise.get(16));
 		listMenuiseries.add(new Menuiseries(0, dateDebut2, 7, 160000, "enCours", 200000, null, setEntreprise2,
 				listEntreprise.get(16), 7, 3, 1));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(17));
 		setEntreprise3.add(listEntreprise.get(9));
 		listMenuiseries.add(new Menuiseries(0, dateDebut3, 1, 100000, "termine", 100000, dateFin3, setEntreprise3,
 				listEntreprise.get(17), 2, 4, 2));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(17));
 		setEntreprise4.add(listEntreprise.get(9));
@@ -405,7 +481,7 @@ public class JeuDEssai {
 		}
 		return listMenuiseries;
 	}
-	
+
 	public static ArrayList<Fondation> jeuFondation(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 1, 23);
@@ -425,18 +501,16 @@ public class JeuDEssai {
 				listEntreprise.get(0), 180));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(0));
-		setEntreprise2.add(listEntreprise.get(22));
 		setEntreprise2.add(listEntreprise.get(23));
 		listFondation.add(new Fondation(0, dateDebut2, 5, 160000, "enCours", 180000, null, setEntreprise2,
 				listEntreprise.get(23), 170));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(0));
 		setEntreprise3.add(listEntreprise.get(23));
 		listFondation.add(new Fondation(0, dateDebut3, 5, 170000, "termine", 180000, dateFin3, setEntreprise3,
 				listEntreprise.get(0), 180));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(22));
 		setEntreprise4.add(listEntreprise.get(23));
@@ -451,7 +525,7 @@ public class JeuDEssai {
 		}
 		return listFondation;
 	}
-	
+
 	public static ArrayList<Maconnerie> jeuMaconnerie(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 2, 7);
@@ -471,17 +545,17 @@ public class JeuDEssai {
 				listEntreprise.get(2), 300, 7));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(19));
+		setEntreprise2.add(listEntreprise.get(18));
 		setEntreprise2.add(listEntreprise.get(2));
 		listMaconnerie.add(new Maconnerie(0, dateDebut2, 7, 200000, "enCours", 190000, null, setEntreprise2,
-				listEntreprise.get(19), 150, 4));
-		
+				listEntreprise.get(18), 150, 4));
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(19));
 		setEntreprise3.add(listEntreprise.get(18));
 		listMaconnerie.add(new Maconnerie(0, dateDebut3, 1, 220000, "termine", 210000, dateFin3, setEntreprise3,
 				listEntreprise.get(18), 170, 6));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(19));
 		setEntreprise4.add(listEntreprise.get(18));
@@ -497,7 +571,7 @@ public class JeuDEssai {
 		}
 		return listMaconnerie;
 	}
-	
+
 	public static ArrayList<Platerie> jeuPlaterie(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 3, 8);
@@ -512,21 +586,19 @@ public class JeuDEssai {
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
 		setEntreprise1.add(listEntreprise.get(7));
-		setEntreprise1.add(listEntreprise.get(13));
 		listPlaterie.add(new Platerie(0, dateDebut1, 4, 170000, "enCours", 200000, null, setEntreprise1,
-				listEntreprise.get(13), 210, 300));
+				listEntreprise.get(7), 210, 300));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
 		setEntreprise2.add(listEntreprise.get(7));
-		setEntreprise2.add(listEntreprise.get(13));
 		listPlaterie.add(new Platerie(0, dateDebut2, 5, 160000, "enCours", 180000, null, setEntreprise2,
 				listEntreprise.get(7), 150, 210));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(7));
 		listPlaterie.add(new Platerie(0, dateDebut3, 1, 60000, "termine", 80000, dateFin3, setEntreprise3,
 				listEntreprise.get(7), 50, 70));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(13));
 		listPlaterie.add(new Platerie(0, dateDebut4, 3, 100000, "termine", 100000, dateFin4, setEntreprise4,
@@ -540,7 +612,7 @@ public class JeuDEssai {
 		}
 		return listPlaterie;
 	}
-	
+
 	public static ArrayList<Electricite> jeuElectricite(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 2, 2);
@@ -555,16 +627,14 @@ public class JeuDEssai {
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
 		setEntreprise1.add(listEntreprise.get(4));
-		setEntreprise1.add(listEntreprise.get(10));
 		listElectricite.add(new Electricite(0, dateDebut1, 4, 160000, "enCours", 170000, null, setEntreprise1,
 				listEntreprise.get(4), 2, 40));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
 		setEntreprise2.add(listEntreprise.get(4));
-		setEntreprise2.add(listEntreprise.get(10));
 		listElectricite.add(new Electricite(0, dateDebut2, 5, 160000, "enCours", 170000, null, setEntreprise2,
-				listEntreprise.get(10), 3, 20));
-		
+				listEntreprise.get(4), 3, 20));
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(4));
 		setEntreprise3.add(listEntreprise.get(10));
@@ -579,7 +649,7 @@ public class JeuDEssai {
 		}
 		return listElectricite;
 	}
-	
+
 	public static ArrayList<Reseaux> jeuReseaux(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 2, 14);
@@ -599,17 +669,17 @@ public class JeuDEssai {
 				listEntreprise.get(5), 200));
 
 		Set<Entreprise> setEntreprise2 = new HashSet<Entreprise>();
-		setEntreprise2.add(listEntreprise.get(21));
+		setEntreprise2.add(listEntreprise.get(5));
 		setEntreprise2.add(listEntreprise.get(20));
 		listReseaux.add(new Reseaux(0, dateDebut2, 5, 150000, "enCours", 140000, null, setEntreprise2,
 				listEntreprise.get(20), 170));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(5));
 		setEntreprise3.add(listEntreprise.get(21));
 		listReseaux.add(new Reseaux(0, dateDebut3, 1, 100000, "termine", 110000, dateFin3, setEntreprise3,
 				listEntreprise.get(21), 100));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(5));
 		listReseaux.add(new Reseaux(0, dateDebut4, 1, 110000, "termine", 110000, dateFin4, setEntreprise4,
@@ -623,7 +693,7 @@ public class JeuDEssai {
 		}
 		return listReseaux;
 	}
-	
+
 	public static ArrayList<Peinture> jeuPeinture(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 4, 12);
@@ -638,7 +708,6 @@ public class JeuDEssai {
 
 		Set<Entreprise> setEntreprise1 = new HashSet<Entreprise>();
 		setEntreprise1.add(listEntreprise.get(8));
-		setEntreprise1.add(listEntreprise.get(14));
 		listPeinture.add(new Peinture(0, dateDebut1, 4, 180000, "enCours", 190000, null, setEntreprise1,
 				listEntreprise.get(8), 200));
 
@@ -647,13 +716,13 @@ public class JeuDEssai {
 		setEntreprise2.add(listEntreprise.get(14));
 		listPeinture.add(new Peinture(0, dateDebut2, 5, 160000, "enCours", 160000, null, setEntreprise2,
 				listEntreprise.get(14), 170));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(8));
 		setEntreprise3.add(listEntreprise.get(14));
 		listPeinture.add(new Peinture(0, dateDebut3, 5, 150000, "enCours", 160000, dateFin3, setEntreprise3,
 				listEntreprise.get(14), 160));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(8));
 		setEntreprise4.add(listEntreprise.get(14));
@@ -668,7 +737,7 @@ public class JeuDEssai {
 		}
 		return listPeinture;
 	}
-	
+
 	public static ArrayList<Charpente> jeuCharpente(EntityManagerFactory emf, EntityManager em,
 			ArrayList<Entreprise> listEntreprise) {
 		Date dateDebut1 = new Date(117, 4, 5);
@@ -690,12 +759,12 @@ public class JeuDEssai {
 		setEntreprise2.add(listEntreprise.get(11));
 		listCharpente.add(new Charpente(0, dateDebut2, 5, 90000, "enCours", 100000, null, setEntreprise2,
 				listEntreprise.get(11), ECharpente.toitPlat));
-		
+
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(11));
 		listCharpente.add(new Charpente(0, dateDebut3, 1, 70000, "termine", 80000, dateFin3, setEntreprise3,
 				listEntreprise.get(11), ECharpente.fermette));
-		
+
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(11));
 		listCharpente.add(new Charpente(0, dateDebut4, 2, 100000, "termine", 100000, dateFin4, setEntreprise4,
@@ -710,48 +779,70 @@ public class JeuDEssai {
 		return listCharpente;
 	}
 
-	public void projetsTermines() {
+	public static void projetsTermines(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement,
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Acteur> listActeur,
+			ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, ArrayList<Platerie> listPlaterie,
+			ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, ArrayList<Peinture> listPeinture,
+			ArrayList<Charpente> listCharpente) {
 		lotissementTermine();
 		immeubleTermine();
 		hopitalTermine();
 		maisonTermine();
 	}
 
-	public void lotissementTermine() {
+	public static void lotissementTermine() {
 
 	}
 
-	public void immeubleTermine() {
+	public static void immeubleTermine() {
+		
+	}
+
+	public static void hopitalTermine() {
 
 	}
 
-	public void hopitalTermine() {
+	public static void maisonTermine() {
 
 	}
 
-	public void maisonTermine() {
-
-	}
-
-	public static void projetsEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse, ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement, 
-			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Acteur> listActeur, ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, 
-			ArrayList<Platerie> listPlaterie, ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, 
-			ArrayList<Peinture> listPeinture) {
+	public static void projetsEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement,
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Acteur> listActeur,
+			ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, ArrayList<Platerie> listPlaterie,
+			ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, ArrayList<Peinture> listPeinture,
+			ArrayList<Charpente> listCharpente) {
 		etablissementScolaireEnCours(emf, em, listAdresse);
-		immeubleEnCours(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries, listFondation);
-		museeEnCours(emf, em, listAdresse, listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture);
+		immeubleEnCours(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries,
+				listFondation);
+		museeEnCours(emf, em, listAdresse, listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite,
+				listReseaux, listPeinture);
 	}
 
-	private static void museeEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse, 
-			ArrayList<Acteur> listActeur, ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, 
-			ArrayList<Platerie> listPlaterie, ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, 
+	private static void museeEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Acteur> listActeur, ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie,
+			ArrayList<Platerie> listPlaterie, ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux,
 			ArrayList<Peinture> listPeinture) {
 		Date dateFin = new Date(118, 2, 25);
-		
+
 		Set<Acteur> setActeur = new HashSet<Acteur>();
-		for (int i = 0; i < 15; i++)
-			setActeur.add(listActeur.get(i));
-		
+		setActeur.add(listActeur.get(70));
+		setActeur.add(listActeur.get(27));
+		setActeur.add(listActeur.get(2));
+		setActeur.add(listActeur.get(9));
+		setActeur.add(listActeur.get(18));
+		setActeur.add(listActeur.get(46));
+		setActeur.add(listActeur.get(22));
+		setActeur.add(listActeur.get(36));
+		setActeur.add(listActeur.get(19));
+		setActeur.add(listActeur.get(29));
+		setActeur.add(listActeur.get(20));
+		setActeur.add(listActeur.get(32));
+		setActeur.add(listActeur.get(46));
+		setActeur.add(listActeur.get(23));
+		setActeur.add(listActeur.get(38));
+
 		Set<Lot> setLot = new HashSet<Lot>();
 		setLot.add(listFondation.get(1));
 		setLot.add(listMaconnerie.get(0));
@@ -763,22 +854,31 @@ public class JeuDEssai {
 		setLot.add(listReseaux.get(0));
 		setLot.add(listReseaux.get(1));
 		setLot.add(listPeinture.get(0));
-		
-		
-		Musee projetMusee = new Musee(0, "transformation", 789, "enCours", dateFin,
-				1456000, false, null, setActeur, listAdresse.get(2),
-				setLot, "culture", 18);
-		
+
+		Musee projetMusee = new Musee(0, "transformation", 789, "enCours", dateFin, 1456000, false, null, setActeur,
+				listAdresse.get(2), setLot, "culture", 18);
+
 		em.getTransaction().begin();
 		em.persist(projetMusee);
 		em.getTransaction().commit();
+
+		ArrayList<Acteur> arrayListActeur = new ArrayList<Acteur>(setActeur);
+		for (int i = 0; i < arrayListActeur.size(); i++) {
+			em.getTransaction().begin();
+			Acteur acteur = em.find(Acteur.class, arrayListActeur.get(i).getNom());
+			Set<Projet> setProjet = new HashSet<Projet>(acteur.getParticipe());
+			setProjet.add(projetMusee);
+			acteur.setParticipe(setProjet);
+			em.getTransaction().commit();
+		}
 	}
 
-	private static void immeubleEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse, 
-			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement, ArrayList<Dallage> listDallage, 
-			ArrayList<Menuiseries> listMenuiseries, ArrayList<Fondation> listFondation) {
+	private static void immeubleEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement,
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries,
+			ArrayList<Fondation> listFondation) {
 		Date dateFin = new Date(118, 8, 10);
-		
+
 		Set<Lot> setLot = new HashSet<Lot>();
 		setLot.add(listTerrassement.get(0));
 		setLot.add(listTerrassement.get(1));
@@ -787,27 +887,24 @@ public class JeuDEssai {
 		setLot.add(listMenuiseries.get(0));
 		setLot.add(listMenuiseries.get(1));
 		setLot.add(listFondation.get(0));
-		
-		
+
 		Set<Appartement> setAppartement = new HashSet<Appartement>();
 		for (int i = 0; i < 8; i++)
 			setAppartement.add(listAppartement.get(i));
-		
-		
-		Immeuble projetImmeuble = new Immeuble(0, "renovation", 435, "enCours", dateFin,
-				628000, false, null, null, listAdresse.get(1),
-				setLot, 5, setAppartement);
+
+		Immeuble projetImmeuble = new Immeuble(0, "renovation", 435, "enCours", dateFin, 628000, false, null, null,
+				listAdresse.get(1), setLot, 5, setAppartement);
 		em.getTransaction().begin();
 		em.persist(projetImmeuble);
 		em.getTransaction().commit();
 	}
 
-	private static void etablissementScolaireEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse) {
+	private static void etablissementScolaireEnCours(EntityManagerFactory emf, EntityManager em,
+			ArrayList<Adresse> listAdresse) {
 		Date dateFin = new Date(118, 6, 10);
 
 		EtablissementScolaire projetEtaScol = new EtablissementScolaire(0, "restructuration", 540, "enCours", dateFin,
-				500000, false, null, null, listAdresse.get(0),
-				null, "education", 348, EEtaScolaire.lycee);
+				500000, false, null, null, listAdresse.get(0), null, "education", 348, EEtaScolaire.lycee);
 		em.getTransaction().begin();
 		em.persist(projetEtaScol);
 		em.getTransaction().commit();
