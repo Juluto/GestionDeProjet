@@ -24,9 +24,12 @@ import modele.Electricite;
 import modele.Entreprise;
 import modele.EtablissementScolaire;
 import modele.Fondation;
+import modele.Hopital;
 import modele.Immeuble;
 import modele.Lot;
+import modele.Lotissement;
 import modele.Maconnerie;
+import modele.Maison;
 import modele.Menuiseries;
 import modele.Musee;
 import modele.Peinture;
@@ -256,6 +259,10 @@ public class JeuDEssai {
 		listAdresse.add(new Adresse(0, 26, "rue de la miage", 59222, "Bousies"));
 		listAdresse.add(new Adresse(0, 26, "rue des glacis", 41600, "Vouzon"));
 		listAdresse.add(new Adresse(0, 32, "rue de la paix", 57930, "Postroff"));
+		listAdresse.add(new Adresse(0, 42, "rue de voila", 16390, "Pillac"));
+		listAdresse.add(new Adresse(0, 31, "rue de voilou", 15400, "Trizac"));
+		listAdresse.add(new Adresse(0, 27, "rue de truc", 73450, "Valmeiner"));
+		listAdresse.add(new Adresse(0, 34, "rue de bidule", 81470, "Aguts"));
 		Iterator<Adresse> iterator = listAdresse.listIterator();
 		while (iterator.hasNext()) {
 			em.getTransaction().begin();
@@ -356,9 +363,13 @@ public class JeuDEssai {
 		Date dateDebut2 = new Date(116, 8, 20);
 		Date dateDebut3 = new Date(117, 3, 5);
 		Date dateDebut4 = new Date(117, 4, 12);
+		Date dateDebut5 = new Date(117, 4, 12);
+		Date dateDebut6 = new Date(117, 4, 12);
 
 		Date dateFin3 = new Date(117, 5, 5);
 		Date dateFin4 = new Date(117, 8, 12);
+		Date dateFin5 = new Date(117, 8, 12);
+		Date dateFin6 = new Date(117, 8, 12);
 
 		ArrayList<Terrassement> listTerrassement = new ArrayList<Terrassement>();
 
@@ -382,6 +393,16 @@ public class JeuDEssai {
 		setEntreprise4.add(listEntreprise.get(12));
 		setEntreprise4.add(listEntreprise.get(3));
 		listTerrassement.add(new Terrassement(0, dateDebut4, 2, 130000, "termine", 120000, dateFin4, setEntreprise4,
+				listEntreprise.get(12), 120));
+		
+		Set<Entreprise> setEntreprise5 = new HashSet<Entreprise>();
+		setEntreprise5.add(listEntreprise.get(12));
+		listTerrassement.add(new Terrassement(0, dateDebut5, 2, 130000, "termine", 120000, dateFin5, setEntreprise5,
+				listEntreprise.get(12), 130));
+		
+		Set<Entreprise> setEntreprise6 = new HashSet<Entreprise>();
+		setEntreprise6.add(listEntreprise.get(12));
+		listTerrassement.add(new Terrassement(0, dateDebut6, 2, 130000, "termine", 120000, dateFin6, setEntreprise6,
 				listEntreprise.get(12), 120));
 
 		Iterator<Terrassement> iterator = listTerrassement.listIterator();
@@ -442,9 +463,13 @@ public class JeuDEssai {
 		Date dateDebut2 = new Date(116, 3, 22);
 		Date dateDebut3 = new Date(116, 7, 15);
 		Date dateDebut4 = new Date(116, 6, 22);
+		Date dateDebut5 = new Date(116, 7, 15);
+		Date dateDebut6 = new Date(116, 6, 22);
 
 		Date dateFin3 = new Date(116, 8, 5);
 		Date dateFin4 = new Date(117, 3, 22);
+		Date dateFin5 = new Date(116, 8, 5);
+		Date dateFin6 = new Date(117, 3, 22);
 
 		ArrayList<Menuiseries> listMenuiseries = new ArrayList<Menuiseries>();
 
@@ -460,18 +485,24 @@ public class JeuDEssai {
 				listEntreprise.get(16), 7, 3, 1));
 
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
-		setEntreprise3.add(listEntreprise.get(17));
 		setEntreprise3.add(listEntreprise.get(9));
 		listMenuiseries.add(new Menuiseries(0, dateDebut3, 1, 100000, "termine", 100000, dateFin3, setEntreprise3,
-				listEntreprise.get(17), 2, 4, 2));
+				listEntreprise.get(9), 2, 4, 2));
 
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
-		setEntreprise4.add(listEntreprise.get(17));
 		setEntreprise4.add(listEntreprise.get(9));
-		setEntreprise4.add(listEntreprise.get(15));
-		setEntreprise4.add(listEntreprise.get(16));
 		listMenuiseries.add(new Menuiseries(0, dateDebut4, 9, 200000, "termine", 220000, dateFin4, setEntreprise4,
 				listEntreprise.get(9), 8, 6, 5));
+		
+		Set<Entreprise> setEntreprise5 = new HashSet<Entreprise>();
+		setEntreprise5.add(listEntreprise.get(16));
+		listMenuiseries.add(new Menuiseries(0, dateDebut5, 9, 200000, "termine", 220000, dateFin5, setEntreprise5,
+				listEntreprise.get(16), 7, 5, 4));
+		
+		Set<Entreprise> setEntreprise6 = new HashSet<Entreprise>();
+		setEntreprise6.add(listEntreprise.get(15));
+		listMenuiseries.add(new Menuiseries(0, dateDebut6, 9, 200000, "termine", 220000, dateFin6, setEntreprise6,
+				listEntreprise.get(15), 9, 7, 6));
 
 		Iterator<Menuiseries> iterator = listMenuiseries.listIterator();
 		while (iterator.hasNext()) {
@@ -488,9 +519,15 @@ public class JeuDEssai {
 		Date dateDebut2 = new Date(116, 9, 2);
 		Date dateDebut3 = new Date(117, 6, 24);
 		Date dateDebut4 = new Date(117, 7, 2);
+		Date dateDebut5 = new Date(117, 7, 2);
+		Date dateDebut6 = new Date(117, 7, 2);
+		Date dateDebut7 = new Date(117, 7, 2);
 
 		Date dateFin3 = new Date(117, 11, 25);
 		Date dateFin4 = new Date(117, 9, 23);
+		Date dateFin5 = new Date(117, 9, 23);
+		Date dateFin6 = new Date(117, 9, 23);
+		Date dateFin7 = new Date(117, 9, 23);
 
 		ArrayList<Fondation> listFondation = new ArrayList<Fondation>();
 
@@ -506,16 +543,30 @@ public class JeuDEssai {
 				listEntreprise.get(23), 170));
 
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
-		setEntreprise3.add(listEntreprise.get(0));
 		setEntreprise3.add(listEntreprise.get(23));
 		listFondation.add(new Fondation(0, dateDebut3, 5, 170000, "termine", 180000, dateFin3, setEntreprise3,
-				listEntreprise.get(0), 180));
+				listEntreprise.get(23), 180));
 
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(22));
 		setEntreprise4.add(listEntreprise.get(23));
 		listFondation.add(new Fondation(0, dateDebut4, 2, 110000, "termine", 120000, dateFin4, setEntreprise4,
 				listEntreprise.get(22), 100));
+
+		Set<Entreprise> setEntreprise5 = new HashSet<Entreprise>();
+		setEntreprise5.add(listEntreprise.get(23));
+		listFondation.add(new Fondation(0, dateDebut5, 2, 110000, "termine", 120000, dateFin5, setEntreprise5,
+				listEntreprise.get(23), 90));
+		
+		Set<Entreprise> setEntreprise6 = new HashSet<Entreprise>();
+		setEntreprise6.add(listEntreprise.get(0));
+		listFondation.add(new Fondation(0, dateDebut6, 2, 110000, "termine", 120000, dateFin6, setEntreprise6,
+				listEntreprise.get(0), 100));
+		
+		Set<Entreprise> setEntreprise7 = new HashSet<Entreprise>();
+		setEntreprise7.add(listEntreprise.get(0));
+		listFondation.add(new Fondation(0, dateDebut7, 2, 110000, "termine", 120000, dateFin7, setEntreprise7,
+				listEntreprise.get(0), 80));
 
 		Iterator<Fondation> iterator = listFondation.listIterator();
 		while (iterator.hasNext()) {
@@ -551,17 +602,15 @@ public class JeuDEssai {
 				listEntreprise.get(18), 150, 4));
 
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
-		setEntreprise3.add(listEntreprise.get(19));
 		setEntreprise3.add(listEntreprise.get(18));
 		listMaconnerie.add(new Maconnerie(0, dateDebut3, 1, 220000, "termine", 210000, dateFin3, setEntreprise3,
 				listEntreprise.get(18), 170, 6));
 
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
-		setEntreprise4.add(listEntreprise.get(19));
 		setEntreprise4.add(listEntreprise.get(18));
-		setEntreprise4.add(listEntreprise.get(2));
+		setEntreprise2.add(listEntreprise.get(2));
 		listMaconnerie.add(new Maconnerie(0, dateDebut4, 6, 250000, "termine", 260000, dateFin4, setEntreprise4,
-				listEntreprise.get(2), 210, 7));
+				listEntreprise.get(18), 210, 7));
 
 		Iterator<Maconnerie> iterator = listMaconnerie.listIterator();
 		while (iterator.hasNext()) {
@@ -595,9 +644,9 @@ public class JeuDEssai {
 				listEntreprise.get(7), 150, 210));
 
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
-		setEntreprise3.add(listEntreprise.get(7));
+		setEntreprise3.add(listEntreprise.get(13));
 		listPlaterie.add(new Platerie(0, dateDebut3, 1, 60000, "termine", 80000, dateFin3, setEntreprise3,
-				listEntreprise.get(7), 50, 70));
+				listEntreprise.get(13), 50, 70));
 
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(13));
@@ -619,9 +668,15 @@ public class JeuDEssai {
 		Date dateDebut2 = new Date(116, 4, 20);
 		Date dateDebut3 = new Date(117, 1, 14);
 		Date dateDebut4 = new Date(117, 5, 12);
+		Date dateDebut5 = new Date(117, 5, 12);
+		Date dateDebut6 = new Date(117, 5, 12);
+		Date dateDebut7 = new Date(117, 5, 12);
 
 		Date dateFin3 = new Date(117, 10, 15);
 		Date dateFin4 = new Date(117, 4, 20);
+		Date dateFin5 = new Date(117, 4, 20);
+		Date dateFin6 = new Date(117, 4, 20);
+		Date dateFin7 = new Date(117, 4, 20);
 
 		ArrayList<Electricite> listElectricite = new ArrayList<Electricite>();
 
@@ -636,10 +691,29 @@ public class JeuDEssai {
 				listEntreprise.get(4), 3, 20));
 
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
-		setEntreprise3.add(listEntreprise.get(4));
 		setEntreprise3.add(listEntreprise.get(10));
-		listElectricite.add(new Electricite(0, dateDebut3, 9, 180000, "termine", 170000, null, setEntreprise3,
+		listElectricite.add(new Electricite(0, dateDebut3, 9, 180000, "termine", 170000, dateFin3, setEntreprise3,
 				listEntreprise.get(10), 4, 21));
+
+		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
+		setEntreprise4.add(listEntreprise.get(10));
+		listElectricite.add(new Electricite(0, dateDebut4, 9, 180000, "termine", 170000, dateFin4, setEntreprise4,
+				listEntreprise.get(10), 5, 22));
+		
+		Set<Entreprise> setEntreprise5 = new HashSet<Entreprise>();
+		setEntreprise5.add(listEntreprise.get(4));
+		listElectricite.add(new Electricite(0, dateDebut5, 9, 180000, "termine", 170000, dateFin5, setEntreprise5,
+				listEntreprise.get(4), 6, 21));
+		
+		Set<Entreprise> setEntreprise6 = new HashSet<Entreprise>();
+		setEntreprise6.add(listEntreprise.get(4));
+		listElectricite.add(new Electricite(0, dateDebut6, 9, 180000, "termine", 170000, dateFin6, setEntreprise6,
+				listEntreprise.get(4), 7, 20));
+		
+		Set<Entreprise> setEntreprise7 = new HashSet<Entreprise>();
+		setEntreprise7.add(listEntreprise.get(10));
+		listElectricite.add(new Electricite(0, dateDebut7, 9, 180000, "termine", 170000, dateFin7, setEntreprise7,
+				listEntreprise.get(10), 5, 22));
 
 		Iterator<Electricite> iterator = listElectricite.listIterator();
 		while (iterator.hasNext()) {
@@ -656,9 +730,13 @@ public class JeuDEssai {
 		Date dateDebut2 = new Date(116, 3, 7);
 		Date dateDebut3 = new Date(117, 6, 25);
 		Date dateDebut4 = new Date(117, 7, 23);
+		Date dateDebut5 = new Date(117, 6, 25);
+		Date dateDebut6 = new Date(117, 7, 23);
 
 		Date dateFin3 = new Date(117, 7, 5);
 		Date dateFin4 = new Date(117, 8, 12);
+		Date dateFin5 = new Date(117, 7, 5);
+		Date dateFin6 = new Date(117, 8, 12);
 
 		ArrayList<Reseaux> listReseaux = new ArrayList<Reseaux>();
 
@@ -676,14 +754,24 @@ public class JeuDEssai {
 
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
 		setEntreprise3.add(listEntreprise.get(5));
-		setEntreprise3.add(listEntreprise.get(21));
+		setEntreprise3.add(listEntreprise.get(20));
 		listReseaux.add(new Reseaux(0, dateDebut3, 1, 100000, "termine", 110000, dateFin3, setEntreprise3,
-				listEntreprise.get(21), 100));
+				listEntreprise.get(5), 100));
 
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
 		setEntreprise4.add(listEntreprise.get(5));
 		listReseaux.add(new Reseaux(0, dateDebut4, 1, 110000, "termine", 110000, dateFin4, setEntreprise4,
 				listEntreprise.get(5), 110));
+		
+		Set<Entreprise> setEntreprise5 = new HashSet<Entreprise>();
+		setEntreprise5.add(listEntreprise.get(5));
+		listReseaux.add(new Reseaux(0, dateDebut5, 1, 110000, "termine", 110000, dateFin5, setEntreprise5,
+				listEntreprise.get(5), 120));
+		
+		Set<Entreprise> setEntreprise6 = new HashSet<Entreprise>();
+		setEntreprise6.add(listEntreprise.get(20));
+		listReseaux.add(new Reseaux(0, dateDebut6, 1, 110000, "termine", 110000, dateFin6, setEntreprise6,
+				listEntreprise.get(20), 120));
 
 		Iterator<Reseaux> iterator = listReseaux.listIterator();
 		while (iterator.hasNext()) {
@@ -700,9 +788,11 @@ public class JeuDEssai {
 		Date dateDebut2 = new Date(116, 2, 27);
 		Date dateDebut3 = new Date(117, 3, 25);
 		Date dateDebut4 = new Date(117, 7, 9);
+		Date dateDebut5 = new Date(117, 7, 9);
 
 		Date dateFin3 = new Date(117, 8, 25);
 		Date dateFin4 = new Date(117, 9, 2);
+		Date dateFin5 = new Date(117, 9, 2);
 
 		ArrayList<Peinture> listPeinture = new ArrayList<Peinture>();
 
@@ -718,16 +808,21 @@ public class JeuDEssai {
 				listEntreprise.get(14), 170));
 
 		Set<Entreprise> setEntreprise3 = new HashSet<Entreprise>();
-		setEntreprise3.add(listEntreprise.get(8));
 		setEntreprise3.add(listEntreprise.get(14));
-		listPeinture.add(new Peinture(0, dateDebut3, 5, 150000, "enCours", 160000, dateFin3, setEntreprise3,
+		setEntreprise3.add(listEntreprise.get(8));
+		listPeinture.add(new Peinture(0, dateDebut3, 5, 150000, "termine", 160000, dateFin3, setEntreprise3,
 				listEntreprise.get(14), 160));
 
 		Set<Entreprise> setEntreprise4 = new HashSet<Entreprise>();
-		setEntreprise4.add(listEntreprise.get(8));
 		setEntreprise4.add(listEntreprise.get(14));
-		listPeinture.add(new Peinture(0, dateDebut4, 5, 180000, "enCours", 170000, dateFin4, setEntreprise4,
-				listEntreprise.get(8), 190));
+		setEntreprise3.add(listEntreprise.get(8));
+		listPeinture.add(new Peinture(0, dateDebut4, 5, 180000, "termine", 170000, dateFin4, setEntreprise4,
+				listEntreprise.get(14), 190));
+		
+		Set<Entreprise> setEntreprise5 = new HashSet<Entreprise>();
+		setEntreprise5.add(listEntreprise.get(14));
+		listPeinture.add(new Peinture(0, dateDebut5, 5, 180000, "termine", 170000, dateFin5, setEntreprise5,
+				listEntreprise.get(14), 200));
 
 		Iterator<Peinture> iterator = listPeinture.listIterator();
 		while (iterator.hasNext()) {
@@ -785,26 +880,204 @@ public class JeuDEssai {
 			ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, ArrayList<Platerie> listPlaterie,
 			ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, ArrayList<Peinture> listPeinture,
 			ArrayList<Charpente> listCharpente) {
-		lotissementTermine();
-		immeubleTermine();
-		hopitalTermine();
-		maisonTermine();
+		immeubleTermine(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries,
+				listFondation, listActeur);
+		hopitalTermine(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries,
+				listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture,
+				listCharpente);
+		Maison projetMaison = maisonTermine(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries, listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture, listCharpente);
+		lotissementTermine(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries, listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite, listReseaux, listPeinture, listCharpente, projetMaison);
 	}
 
-	public static void lotissementTermine() {
+	public static void lotissementTermine(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement,
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Acteur> listActeur,
+			ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, ArrayList<Platerie> listPlaterie,
+			ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, ArrayList<Peinture> listPeinture,
+			ArrayList<Charpente> listCharpente, Maison projetMaison) {
 
-	}
+		Date dateFin = new Date(118, 8, 10);
+		Date dateFinReelle = new Date(118, 8, 10);
 
-	public static void immeubleTermine() {
+		Set<Acteur> setActeur = new HashSet<Acteur>();
+		setActeur.add(listActeur.get(55));
+		setActeur.add(listActeur.get(54));
+		setActeur.add(listActeur.get(20));
+		setActeur.add(listActeur.get(47));
+		setActeur.add(listActeur.get(48));
+		setActeur.add(listActeur.get(12));
+		setActeur.add(listActeur.get(14));
+		setActeur.add(listActeur.get(5));
+		setActeur.add(listActeur.get(19));
+		setActeur.add(listActeur.get(27));
+
+		Set<Lot> setLot = new HashSet<Lot>();
+		setLot.add(listTerrassement.get(4));
+		setLot.add(listTerrassement.get(5));
+		setLot.add(listReseaux.get(4));
+		setLot.add(listReseaux.get(5));
+		setLot.add(listMenuiseries.get(4));
+		setLot.add(listMenuiseries.get(5));
+		setLot.add(listFondation.get(5));
+		setLot.add(listFondation.get(6));
+		setLot.add(listElectricite.get(5));
+		setLot.add(listElectricite.get(6));
 		
+		Set<Maison> setMaison = new HashSet<Maison>();
+		setMaison.add(projetMaison);
+		
+		Lotissement projetLotissement = new Lotissement(0, "construction", 30000, "termine", dateFin, 30000, true, dateFinReelle, setActeur, listAdresse.get(27), setLot, 3, setMaison);
+		em.getTransaction().begin();
+		em.persist(projetLotissement);
+		em.getTransaction().commit();
+
+		ArrayList<Acteur> arrayListActeur = new ArrayList<Acteur>(setActeur);
+		for (int i = 0; i < arrayListActeur.size(); i++) {
+			em.getTransaction().begin();
+			Acteur acteur = em.find(Acteur.class, arrayListActeur.get(i).getNom());
+			Set<Projet> setProjet = new HashSet<Projet>(acteur.getParticipe());
+			setProjet.add(projetLotissement);
+			acteur.setParticipe(setProjet);
+			em.getTransaction().commit();
+		}
 	}
 
-	public static void hopitalTermine() {
+	public static void immeubleTermine(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement,
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Fondation> listFondation,
+			ArrayList<Acteur> listActeur) {
+		Date dateFin = new Date(118, 8, 10);
+		Date dateFinReelle = new Date(118, 8, 10);
 
+		Set<Acteur> setActeur = new HashSet<Acteur>();
+		setActeur.add(listActeur.get(51));
+		setActeur.add(listActeur.get(54));
+		setActeur.add(listActeur.get(10));
+		setActeur.add(listActeur.get(1));
+		setActeur.add(listActeur.get(33));
+		setActeur.add(listActeur.get(39));
+		setActeur.add(listActeur.get(50));
+		setActeur.add(listActeur.get(70));
+
+		Set<Lot> setLot = new HashSet<Lot>();
+		setLot.add(listTerrassement.get(2));
+		setLot.add(listTerrassement.get(3));
+		setLot.add(listDallage.get(2));
+		setLot.add(listDallage.get(3));
+		setLot.add(listMenuiseries.get(2));
+		setLot.add(listMenuiseries.get(3));
+		setLot.add(listFondation.get(2));
+		setLot.add(listFondation.get(3));
+
+		Set<Appartement> setAppartement = new HashSet<Appartement>();
+		for (int i = 8; i < 18; i++)
+			setAppartement.add(listAppartement.get(i));
+
+		Immeuble projetImmeuble = new Immeuble(0, "construction", 450, "termine", dateFin, 628000, true, dateFinReelle,
+				setActeur, listAdresse.get(24), setLot, 5, setAppartement);
+		em.getTransaction().begin();
+		em.persist(projetImmeuble);
+		em.getTransaction().commit();
+
+		ArrayList<Acteur> arrayListActeur = new ArrayList<Acteur>(setActeur);
+		for (int i = 0; i < arrayListActeur.size(); i++) {
+			em.getTransaction().begin();
+			Acteur acteur = em.find(Acteur.class, arrayListActeur.get(i).getNom());
+			Set<Projet> setProjet = new HashSet<Projet>(acteur.getParticipe());
+			setProjet.add(projetImmeuble);
+			acteur.setParticipe(setProjet);
+			em.getTransaction().commit();
+		}
 	}
 
-	public static void maisonTermine() {
+	public static void hopitalTermine(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement,
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Acteur> listActeur,
+			ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, ArrayList<Platerie> listPlaterie,
+			ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, ArrayList<Peinture> listPeinture,
+			ArrayList<Charpente> listCharpente) {
+		Date dateFin = new Date(118, 2, 25);
 
+		Set<Acteur> setActeur = new HashSet<Acteur>();
+		setActeur.add(listActeur.get(8));
+		setActeur.add(listActeur.get(45));
+		setActeur.add(listActeur.get(18));
+		setActeur.add(listActeur.get(26));
+		setActeur.add(listActeur.get(56));
+		setActeur.add(listActeur.get(57));
+		setActeur.add(listActeur.get(41));
+		setActeur.add(listActeur.get(32));
+		setActeur.add(listActeur.get(61));
+		setActeur.add(listActeur.get(37));
+		setActeur.add(listActeur.get(46));
+
+		Set<Lot> setLot = new HashSet<Lot>();
+		setLot.add(listMaconnerie.get(3));
+		setLot.add(listMaconnerie.get(2));
+		setLot.add(listFondation.get(4));
+		setLot.add(listPlaterie.get(2));
+		setLot.add(listPlaterie.get(3));
+		setLot.add(listElectricite.get(2));
+		setLot.add(listElectricite.get(3));
+		setLot.add(listReseaux.get(2));
+		setLot.add(listReseaux.get(3));
+		setLot.add(listPeinture.get(2));
+
+		Hopital projetHopital = new Hopital(0, "contruction", 430, "termine", dateFin, 30000, true, dateFin, setActeur,
+				listAdresse.get(25), setLot, "repos", 24, 3);
+		em.getTransaction().begin();
+		em.persist(projetHopital);
+		em.getTransaction().commit();
+
+		ArrayList<Acteur> arrayListActeur = new ArrayList<Acteur>(setActeur);
+		for (int i = 0; i < arrayListActeur.size(); i++) {
+			em.getTransaction().begin();
+			Acteur acteur = em.find(Acteur.class, arrayListActeur.get(i).getNom());
+			Set<Projet> setProjet = new HashSet<Projet>(acteur.getParticipe());
+			setProjet.add(projetHopital);
+			acteur.setParticipe(setProjet);
+			em.getTransaction().commit();
+		}
+	}
+
+	public static Maison maisonTermine(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
+			ArrayList<Appartement> listAppartement, ArrayList<Terrassement> listTerrassement,
+			ArrayList<Dallage> listDallage, ArrayList<Menuiseries> listMenuiseries, ArrayList<Acteur> listActeur,
+			ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie, ArrayList<Platerie> listPlaterie,
+			ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux, ArrayList<Peinture> listPeinture,
+			ArrayList<Charpente> listCharpente) {
+
+		Date dateFin = new Date(118, 2, 25);
+
+		Set<Acteur> setActeur = new HashSet<Acteur>();
+		setActeur.add(listActeur.get(59));
+		setActeur.add(listActeur.get(38));
+		setActeur.add(listActeur.get(52));
+		setActeur.add(listActeur.get(29));
+
+		Set<Lot> setLot = new HashSet<Lot>();
+		setLot.add(listPeinture.get(3));
+		setLot.add(listPeinture.get(4));
+		setLot.add(listCharpente.get(2));
+		setLot.add(listCharpente.get(3));
+		setLot.add(listElectricite.get(4));
+		
+		Maison projetMaison = new Maison(0, "construction", 500, "termine", dateFin, 234000, true, dateFin, setActeur, listAdresse.get(26), setLot, 6, 2);
+		em.getTransaction().begin();
+		em.persist(projetMaison);
+		em.getTransaction().commit();
+
+		ArrayList<Acteur> arrayListActeur = new ArrayList<Acteur>(setActeur);
+		for (int i = 0; i < arrayListActeur.size(); i++) {
+			em.getTransaction().begin();
+			Acteur acteur = em.find(Acteur.class, arrayListActeur.get(i).getNom());
+			Set<Projet> setProjet = new HashSet<Projet>(acteur.getParticipe());
+			setProjet.add(projetMaison);
+			acteur.setParticipe(setProjet);
+			em.getTransaction().commit();
+		}
+		
+		return projetMaison;
 	}
 
 	public static void projetsEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
@@ -828,7 +1101,7 @@ public class JeuDEssai {
 
 		Set<Acteur> setActeur = new HashSet<Acteur>();
 		setActeur.add(listActeur.get(70));
-		setActeur.add(listActeur.get(27));
+		setActeur.add(listActeur.get(26));
 		setActeur.add(listActeur.get(2));
 		setActeur.add(listActeur.get(9));
 		setActeur.add(listActeur.get(18));
@@ -839,7 +1112,7 @@ public class JeuDEssai {
 		setActeur.add(listActeur.get(29));
 		setActeur.add(listActeur.get(20));
 		setActeur.add(listActeur.get(32));
-		setActeur.add(listActeur.get(46));
+		setActeur.add(listActeur.get(8));
 		setActeur.add(listActeur.get(23));
 		setActeur.add(listActeur.get(38));
 
@@ -855,7 +1128,7 @@ public class JeuDEssai {
 		setLot.add(listReseaux.get(1));
 		setLot.add(listPeinture.get(0));
 
-		Musee projetMusee = new Musee(0, "transformation", 789, "enCours", dateFin, 1456000, false, null, setActeur,
+		Musee projetMusee = new Musee(12, "transformation", 789, "enCours", dateFin, 1456000, false, null, setActeur,
 				listAdresse.get(2), setLot, "culture", 18);
 
 		em.getTransaction().begin();
@@ -903,7 +1176,7 @@ public class JeuDEssai {
 			ArrayList<Adresse> listAdresse) {
 		Date dateFin = new Date(118, 6, 10);
 
-		EtablissementScolaire projetEtaScol = new EtablissementScolaire(0, "restructuration", 540, "enCours", dateFin,
+		EtablissementScolaire projetEtaScol = new EtablissementScolaire(1, "restructuration", 540, "enCours", dateFin,
 				500000, false, null, null, listAdresse.get(0), null, "education", 348, EEtaScolaire.lycee);
 		em.getTransaction().begin();
 		em.persist(projetEtaScol);
