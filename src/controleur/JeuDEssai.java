@@ -926,7 +926,7 @@ public class JeuDEssai {
 		Set<Maison> setMaison = new HashSet<Maison>();
 		setMaison.add(projetMaison);
 		
-		Lotissement projetLotissement = new Lotissement(0, "construction", 30000, "termine", dateFin, 30000, true, dateFinReelle, setActeur, listAdresse.get(27), setLot, 3, setMaison);
+		Lotissement projetLotissement = new Lotissement(3, "construction", 30000, "termine", dateFin, 30000, true, dateFinReelle, setActeur, listAdresse.get(27), setLot, 3, setMaison);
 		em.getTransaction().begin();
 		em.persist(projetLotissement);
 		em.getTransaction().commit();
@@ -973,7 +973,7 @@ public class JeuDEssai {
 		for (int i = 8; i < 18; i++)
 			setAppartement.add(listAppartement.get(i));
 
-		Immeuble projetImmeuble = new Immeuble(0, "construction", 450, "termine", dateFin, 628000, true, dateFinReelle,
+		Immeuble projetImmeuble = new Immeuble(4, "construction", 450, "termine", dateFin, 628000, true, dateFinReelle,
 				setActeur, listAdresse.get(24), setLot, 5, setAppartement);
 		em.getTransaction().begin();
 		em.persist(projetImmeuble);
@@ -1023,7 +1023,7 @@ public class JeuDEssai {
 		setLot.add(listReseaux.get(3));
 		setLot.add(listPeinture.get(2));
 
-		Hopital projetHopital = new Hopital(0, "contruction", 430, "termine", dateFin, 30000, true, dateFin, setActeur,
+		Hopital projetHopital = new Hopital(2, "contruction", 430, "termine", dateFin, 30000, true, dateFin, setActeur,
 				listAdresse.get(25), setLot, "repos", 24, 3);
 		em.getTransaction().begin();
 		em.persist(projetHopital);
@@ -1062,7 +1062,7 @@ public class JeuDEssai {
 		setLot.add(listCharpente.get(3));
 		setLot.add(listElectricite.get(4));
 		
-		Maison projetMaison = new Maison(0, "construction", 500, "termine", dateFin, 234000, true, dateFin, setActeur, listAdresse.get(26), setLot, 6, 2);
+		Maison projetMaison = new Maison(6, "construction", 500, "termine", dateFin, 234000, true, dateFin, setActeur, listAdresse.get(26), setLot, 6, 2);
 		em.getTransaction().begin();
 		em.persist(projetMaison);
 		em.getTransaction().commit();
@@ -1165,7 +1165,7 @@ public class JeuDEssai {
 		for (int i = 0; i < 8; i++)
 			setAppartement.add(listAppartement.get(i));
 
-		Immeuble projetImmeuble = new Immeuble(0, "renovation", 435, "enCours", dateFin, 628000, false, null, null,
+		Immeuble projetImmeuble = new Immeuble(5, "renovation", 435, "enCours", dateFin, 628000, false, null, null,
 				listAdresse.get(1), setLot, 5, setAppartement);
 		em.getTransaction().begin();
 		em.persist(projetImmeuble);
