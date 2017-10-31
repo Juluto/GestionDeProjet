@@ -22,6 +22,15 @@ public class Requete {
 		avancementProjet(emf, em, 12);
 		countProjetEtaScol(emf, em);
 		entrepriseMetier(emf, em, ECorpsMetier.plombier);
+//		nomContacts(emf, em);
+//		projetsTermines(emf, em);
+//		lotsProjetsEnCours(emf, em);
+//		acteursParticipent(emf, em);
+//		countLots12(emf, em);
+//		coutTotalEstime12(emf, em);
+//		entreprisesMenuiseriesMusee(emf, em);
+//		dureesProjetsEnCours(emf, em);
+//		avancementLots12(emf, em);
 	}
 
 	// Requete 1 : Quelles sont les entreprises avec lesquelles le cabinet travaille
@@ -52,15 +61,15 @@ public class Requete {
 			System.out.println("Projet : " + unProjet.getNom());
 	}
 
-	// Requete 3 : Quel est l'avancement du projet de reference 12 ?
+	// Requete 3 : Quel est l'avancement du projet de reference "12" ?
 	public static void avancementProjet(EntityManagerFactory emf, EntityManager em, int reference) {
 		System.out.println();
-		System.out.println("Requete 3 : Quel est l'avancement du projet de reference 12 ?");
+		System.out.println("Requete 3 : Quel est l'avancement du projet de reference \"12\" ?");
 		Query q1 = em.createNamedQuery("Projet.findAvance");
 		q1.setParameter("reference", reference);
 		List<Projet> lesProjets = q1.getResultList();
 		for (Projet unProjet : lesProjets)
-			System.out.println("Projet de r閒閞ence : " + unProjet.getRefProjet() + " et d'avancement : "
+			System.out.println("Projet de reference : " + unProjet.getRefProjet() + " et d'avancement : "
 					+ unProjet.getAvancement());
 	}
 
@@ -72,7 +81,7 @@ public class Requete {
 		Query q1 = em.createNamedQuery("EtablissementScolaire.countEtaScol");
 		List<EtablissementScolaire> lesEtablissementScolaire = q1.getResultList();
 		System.out
-				.println("Nombre de projet portant sur un 閠ablissement scolaire : " + lesEtablissementScolaire.size());
+				.println("Nombre de projet portant sur un etablissement scolaire : " + lesEtablissementScolaire.size());
 	}
 
 	// Requete 5 : Quelles sont les entreprises de plomberie ?
@@ -85,5 +94,58 @@ public class Requete {
 		for (Entreprise uneEntreprise : lesEntreprises)
 			System.out.println("Entreprise : " + uneEntreprise.getNom());
 	}
+	
+	// Requete 6 : Quels sont les noms des contacts de l始entreprise 芦 General Batiment禄 ?
+	public static void nomContacts(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 6 : Quels sont les noms des contacts de l始entreprise 芦 General Batiment禄 ?");
+	}
+	
+	// Requete 7 : A quels projets termines l始entreprise 芦 General Batiment禄 a participe ?
+	public static void projetsTermines(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 7 : A quels projets termines l始entreprise 芦 General Batiment禄 a participe ?");
+	}
 
+	// Requete 8 : Quels sont les lots des projets en cours auxquels participe l始entreprise 芦 General Batiment禄 ?
+	public static void lotsProjetsEnCours(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 8 : Quels sont les lots des projets en cours auxquels participe l始entreprise 芦 General Batiment禄 ?");
+	}
+	
+	// Requete 9 : Quels sont les acteurs (et leur entreprise) participant au projet de reference "12" ?
+	public static void acteursParticipent(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 9 : Quels sont les acteurs (et leur entreprise) participant au projet de reference \"12\" ?");
+	}
+	
+	// Requete 10 : Combien de lots a le projet de reference "12" ?
+	public static void countLots12(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 10 : Combien de lots a le projet de reference \"12\" ?");
+	}
+	
+	// Requete 11 : Quel est le co没t total estime du projet de reference "12" ?
+	public static void coutTotalEstime12(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 11 : Quel est le co没t total estime du projet de reference \"12\" ?");
+	}
+	
+	// Requete 12 : Quelles sont les entreprises (et leur adresse) qui ont realisees les menuiseries dans les projet de Musee ?
+	public static void entreprisesMenuiseriesMusee(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 12 : Quelles sont les entreprises (et leur adresse) qui ont realisees les menuiseries dans les projet de Musee ?");
+	}
+	
+	// Requete 13 : Quelles sont les durees estimees des differents projets en cours ?
+	public static void dureesProjetsEnCours(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 13 : Quelles sont les durees estimees des differents projets en cours ?");
+	}
+	
+	// Requete 14 : Quels sont les avancements des lots (et leur type) du projet de reference "12" ?
+	public static void avancementLots12(EntityManagerFactory emf, EntityManager em) {
+		System.out.println();
+		System.out.println("Requete 14 : Quels sont les avancements des lots (et leur type) du projet de reference \"12\" ?");
+	}
 }
