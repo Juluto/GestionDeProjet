@@ -5,9 +5,13 @@ import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 
 import enumeration.EEtaScolaire;
 
+@NamedQuery(
+		 name="EtablissementScolaire.countEtaScol",
+		 query="select count(e) from EtablissementScolaire e")
 @Entity
 @DiscriminatorValue("ETABLISSEMENTSCOLAIRE")
 public class EtablissementScolaire extends BatimentPublic {

@@ -8,11 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import enumeration.ECorpsMetier;
 
+@NamedQuery(
+		 name="Entreprise.findplomberie",
+		 query="select e from Entreprise e where e.corpsMetier = :metier")
 @Entity
 public class Entreprise implements Serializable {
 	@Id

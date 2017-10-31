@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import controleur.JeuDEssai;
+import controleur.Requete;
 
 public class Main {
 
@@ -14,6 +15,7 @@ public class Main {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("CONCEPTIONCONSTRUCTION");
 		EntityManager em = emf.createEntityManager();
 		JeuDEssai.jeuDEssai(emf, em);
+		Requete.requete(emf, em);
 		em.close();
 		emf.close();
 	}

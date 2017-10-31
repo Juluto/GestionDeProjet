@@ -13,16 +13,26 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@NamedQueries({
+	@NamedQuery(
+			 name="Projet.findEnCours",
+			 query="select p from Projet p where p.termine = 0"),
+	@NamedQuery(
+			 name="Projet.findAvance",
+			 query="select p from Projet p where p.refProjet = :reference"),
+})
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Projet implements Serializable{
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int refProjet;
 	private String nom;
 	private int surfaceTotal;
