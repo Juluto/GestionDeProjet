@@ -296,7 +296,7 @@ public class JeuDEssai {
 		listEntreprise.add(
 				new Entreprise(0, "Electrichien", ECorpsMetier.electricien, "0478246395", null, listAdresse.get(10)));
 		listEntreprise.add(
-				new Entreprise(0, "Portuguese", ECorpsMetier.charpentier, "0148523796", null, listAdresse.get(11)));
+				new Entreprise(0, "General Batiment", ECorpsMetier.charpentier, "0148523796", null, listAdresse.get(11)));
 		listEntreprise
 				.add(new Entreprise(0, "Car l'heure", ECorpsMetier.carreleur, "0245896324", null, listAdresse.get(13)));
 		listEntreprise
@@ -1023,7 +1023,7 @@ public class JeuDEssai {
 		setLot.add(listReseaux.get(3));
 		setLot.add(listPeinture.get(2));
 
-		Hopital projetHopital = new Hopital(2, "contruction", 430, "termine", dateFin, 30000, true, dateFin, setActeur,
+		Hopital projetHopital = new Hopital(2, "construction", 430, "termine", dateFin, 30000, true, dateFin, setActeur,
 				listAdresse.get(25), setLot, "repos", 24, 3);
 		em.getTransaction().begin();
 		em.persist(projetHopital);
