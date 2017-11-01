@@ -8,14 +8,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 import enumeration.EStatut;
 import enumeration.ETitre;
 
-@NamedQuery(
-		 name="Acteur.getContact",
-		 query="select a from Acteur a join a.entreprise e where e.nom=:nomEntreprise")
+@NamedQueries({
+	@NamedQuery(
+			 name="Acteur.getContact",
+			 query="select a from Acteur a join a.entreprise e where e.nom=:nomEntreprise"),
+	@NamedQuery(
+			 name="Acteur.acteursParticipent",
+			 query="select a from Acteur a join a.participe p where p.refProjet=:reference"),
+})
+
 @Entity
 public class Acteur implements Serializable {
 	@Id

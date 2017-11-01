@@ -25,7 +25,7 @@ public class Requete {
 		nomContacts(emf, em, "General Batiment");
 		projetsTermines(emf, em, "General Batiment", true);
 		lotsProjetsEnCours(emf, em, "General Batiment", false);
-//		acteursParticipent(emf, em);
+		acteursParticipent(emf, em, 12);
 //		countLots12(emf, em);
 //		coutTotalEstime12(emf, em);
 //		entreprisesMenuiseriesMusee(emf, em);
@@ -131,9 +131,14 @@ public class Requete {
 	}
 	
 	// Requete 9 : Quels sont les acteurs (et leur entreprise) participant au projet de reference "12" ?
-	public static void acteursParticipent(EntityManagerFactory emf, EntityManager em) {
+	public static void acteursParticipent(EntityManagerFactory emf, EntityManager em, int reference) {
 		System.out.println();
 		System.out.println("Requete 9 : Quels sont les acteurs (et leur entreprise) participant au projet de reference \"12\" ?");
+		Query q1 = em.createNamedQuery("Acteur.acteursParticipent");
+		q1.setParameter("reference", reference);
+		List<Acteur> lesActeurs = q1.getResultList();
+		for (Acteur acteur : lesActeurs)
+			System.out.println("Acteur : " + acteur.getNom() + " dans l'entreprise : " + acteur.getEntreprise().getNom());
 	}
 	
 	// Requete 10 : Combien de lots a le projet de reference "12" ?
