@@ -465,6 +465,7 @@ public class JeuDEssai {
 		Date dateDebut4 = new Date(116, 6, 22);
 		Date dateDebut5 = new Date(116, 7, 15);
 		Date dateDebut6 = new Date(116, 6, 22);
+		Date dateDebut7 = new Date(117, 6, 5);
 
 		Date dateFin3 = new Date(116, 8, 5);
 		Date dateFin4 = new Date(117, 3, 22);
@@ -503,6 +504,11 @@ public class JeuDEssai {
 		setEntreprise6.add(listEntreprise.get(15));
 		listMenuiseries.add(new Menuiseries(0, dateDebut6, 9, 200000, "termine", 220000, dateFin6, setEntreprise6,
 				listEntreprise.get(15), 9, 7, 6));
+		
+		Set<Entreprise> setEntreprise7 = new HashSet<Entreprise>();
+		setEntreprise7.add(listEntreprise.get(16));
+		listMenuiseries.add(new Menuiseries(0, dateDebut7, 2, 120000, "enCours", 150000, null, setEntreprise7,
+				listEntreprise.get(16), 9, 5, 3));
 
 		Iterator<Menuiseries> iterator = listMenuiseries.listIterator();
 		while (iterator.hasNext()) {
@@ -1090,13 +1096,13 @@ public class JeuDEssai {
 		immeubleEnCours(emf, em, listAdresse, listAppartement, listTerrassement, listDallage, listMenuiseries,
 				listFondation);
 		museeEnCours(emf, em, listAdresse, listActeur, listFondation, listMaconnerie, listPlaterie, listElectricite,
-				listReseaux, listPeinture);
+				listReseaux, listPeinture, listMenuiseries);
 	}
 
 	private static void museeEnCours(EntityManagerFactory emf, EntityManager em, ArrayList<Adresse> listAdresse,
 			ArrayList<Acteur> listActeur, ArrayList<Fondation> listFondation, ArrayList<Maconnerie> listMaconnerie,
 			ArrayList<Platerie> listPlaterie, ArrayList<Electricite> listElectricite, ArrayList<Reseaux> listReseaux,
-			ArrayList<Peinture> listPeinture) {
+			ArrayList<Peinture> listPeinture, ArrayList<Menuiseries> listMenuiseries) {
 		Date dateFin = new Date(118, 2, 25);
 
 		Set<Acteur> setActeur = new HashSet<Acteur>();
@@ -1113,8 +1119,8 @@ public class JeuDEssai {
 		setActeur.add(listActeur.get(20));
 		setActeur.add(listActeur.get(32));
 		setActeur.add(listActeur.get(8));
-		setActeur.add(listActeur.get(23));
-		setActeur.add(listActeur.get(38));
+		setActeur.add(listActeur.get(14));
+		setActeur.add(listActeur.get(43));
 
 		Set<Lot> setLot = new HashSet<Lot>();
 		setLot.add(listFondation.get(1));
@@ -1126,7 +1132,7 @@ public class JeuDEssai {
 		setLot.add(listElectricite.get(1));
 		setLot.add(listReseaux.get(0));
 		setLot.add(listReseaux.get(1));
-		setLot.add(listPeinture.get(0));
+		setLot.add(listMenuiseries.get(6));
 
 		Musee projetMusee = new Musee(12, "transformation", 789, "enCours", dateFin, 1456000, false, null, setActeur,
 				listAdresse.get(2), setLot, "culture", 18);

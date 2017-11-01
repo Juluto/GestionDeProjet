@@ -32,7 +32,7 @@ import javax.persistence.TemporalType;
 			 query="select p from Projet p join p.participe e where e.entreprise.nom=:nomEntreprise and p.termine =:termine"),
 	@NamedQuery(
 			 name="Projet.countLots12",
-			 query="select l from Projet p join p.est_decoupe_en l where p.refProjet=:reference"),
+			 query="select count(l) from Projet p join p.est_decoupe_en l where p.refProjet=:reference"),
 	@NamedQuery(
 			 name="Projet.coutTotalEstime12",
 			 query="select p from Projet p where p.refProjet=:reference"),

@@ -5,6 +5,11 @@ import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+
+@NamedQuery(
+		 name="Musee.entreprisesMenuiseriesMusee",
+		 query="select e from Musee m join m.est_decoupe_en l join l.realise e where type(l) in (Menuiseries)")
 
 @Entity
 @DiscriminatorValue("MUSEE")
