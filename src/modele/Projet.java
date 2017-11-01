@@ -27,6 +27,9 @@ import javax.persistence.TemporalType;
 	@NamedQuery(
 			 name="Projet.findAvance",
 			 query="select p from Projet p where p.refProjet = :reference"),
+	@NamedQuery(
+			 name="Projet.projetsTermines",
+			 query="select p from Projet p join p.participe e where e.entreprise.nom=:nomEntreprise and p.termine =:termine"),
 })
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

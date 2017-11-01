@@ -309,7 +309,7 @@ public class JeuDEssai {
 		listEntreprise
 				.add(new Entreprise(0, "Menuimenui", ECorpsMetier.menuisier, "0548963274", null, listAdresse.get(17)));
 		listEntreprise.add(new Entreprise(0, "Macron", ECorpsMetier.macon, "0145236987", null, listAdresse.get(18)));
-		listEntreprise.add(new Entreprise(0, "Macron", ECorpsMetier.macon, "0145236987", null, listAdresse.get(19)));
+		listEntreprise.add(new Entreprise(0, "Persistence", ECorpsMetier.macon, "0125896347", null, listAdresse.get(19)));
 		listEntreprise.add(
 				new Entreprise(0, "Serre u riait", ECorpsMetier.serrurier, "0148596632", null, listAdresse.get(20)));
 		listEntreprise
@@ -926,7 +926,7 @@ public class JeuDEssai {
 		Set<Maison> setMaison = new HashSet<Maison>();
 		setMaison.add(projetMaison);
 		
-		Lotissement projetLotissement = new Lotissement(3, "construction", 30000, "termine", dateFin, 30000, true, dateFinReelle, setActeur, listAdresse.get(27), setLot, 3, setMaison);
+		Lotissement projetLotissement = new Lotissement(3, "Parce que c'est notre projet", 30000, "termine", dateFin, 30000, true, dateFinReelle, setActeur, listAdresse.get(27), setLot, 3, setMaison);
 		em.getTransaction().begin();
 		em.persist(projetLotissement);
 		em.getTransaction().commit();
@@ -973,7 +973,7 @@ public class JeuDEssai {
 		for (int i = 8; i < 18; i++)
 			setAppartement.add(listAppartement.get(i));
 
-		Immeuble projetImmeuble = new Immeuble(4, "construction", 450, "termine", dateFin, 628000, true, dateFinReelle,
+		Immeuble projetImmeuble = new Immeuble(4, "recomposition", 450, "termine", dateFin, 628000, true, dateFinReelle,
 				setActeur, listAdresse.get(24), setLot, 5, setAppartement);
 		em.getTransaction().begin();
 		em.persist(projetImmeuble);
@@ -1023,7 +1023,7 @@ public class JeuDEssai {
 		setLot.add(listReseaux.get(3));
 		setLot.add(listPeinture.get(2));
 
-		Hopital projetHopital = new Hopital(2, "construction", 430, "termine", dateFin, 30000, true, dateFin, setActeur,
+		Hopital projetHopital = new Hopital(2, "inauguration", 430, "termine", dateFin, 30000, true, dateFin, setActeur,
 				listAdresse.get(25), setLot, "repos", 24, 3);
 		em.getTransaction().begin();
 		em.persist(projetHopital);
