@@ -13,13 +13,20 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@NamedQuery(
-		 name="Lot.cabinetTravaille",
-		 query="select l from Lot l")
+@NamedQueries({
+	@NamedQuery(
+			 name="Lot.cabinetTravaille",
+			 query="select l from Lot l"),
+	@NamedQuery(
+			 name="Lot.lotsProjetsEnCours",
+			 query="select l from Lot l join l.realise e join e.acteur a join a.participe p where e.nom=:nomEntreprise and p.termine=:termine"),
+})
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Lot implements Serializable {
