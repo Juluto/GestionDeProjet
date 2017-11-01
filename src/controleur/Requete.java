@@ -27,7 +27,7 @@ public class Requete {
 		lotsProjetsEnCours(emf, em, "General Batiment", false);
 		acteursParticipent(emf, em, 12);
 		countLots12(emf, em, 12);
-//		coutTotalEstime12(emf, em);
+		coutTotalEstime12(emf, em, 12);
 //		entreprisesMenuiseriesMusee(emf, em);
 //		dureesProjetsEnCours(emf, em);
 //		avancementLots12(emf, em);
@@ -152,9 +152,14 @@ public class Requete {
 	}
 	
 	// Requete 11 : Quel est le cout total estime du projet de reference "12" ?
-	public static void coutTotalEstime12(EntityManagerFactory emf, EntityManager em) {
+	public static void coutTotalEstime12(EntityManagerFactory emf, EntityManager em, int reference) {
 		System.out.println();
 		System.out.println("Requete 11 : Quel est le cout total estime du projet de reference \"12\" ?");
+		Query q1 = em.createNamedQuery("Projet.coutTotalEstime12");
+		q1.setParameter("reference", reference);
+		List<Projet> lesProjets = q1.getResultList();
+		for (Projet projet : lesProjets)
+			System.out.println("Cout total estime : " + projet.getCoutTotalEstime());
 	}
 	
 	// Requete 12 : Quelles sont les entreprises (et leur adresse) qui ont realisees les menuiseries dans les projet de Musee ?

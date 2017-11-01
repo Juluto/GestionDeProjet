@@ -33,6 +33,9 @@ import javax.persistence.TemporalType;
 	@NamedQuery(
 			 name="Projet.countLots12",
 			 query="select l from Projet p join p.est_decoupe_en l where p.refProjet=:reference"),
+	@NamedQuery(
+			 name="Projet.coutTotalEstime12",
+			 query="select p from Projet p where p.refProjet=:reference"),
 })
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
