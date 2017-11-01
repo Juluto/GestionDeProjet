@@ -25,6 +25,10 @@ import javax.persistence.TemporalType;
 	@NamedQuery(
 			 name="Lot.lotsProjetsEnCours",
 			 query="select l from Lot l join l.realise e join e.acteur a join a.participe p where e.nom=:nomEntreprise and p.termine=:termine"),
+	@NamedQuery(
+			 name="Lot.avancementLotDuProjet",
+			 query="select l from Projet p join p.est_decoupe_en l where p.refProjet=:reference"),
+	
 })
 
 @Entity

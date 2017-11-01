@@ -36,6 +36,9 @@ import javax.persistence.TemporalType;
 	@NamedQuery(
 			 name="Projet.coutTotalEstime12",
 			 query="select p from Projet p where p.refProjet=:reference"),
+	@NamedQuery(
+			 name="Projet.tempsEstimeProjetEnCours",
+			 query="select p from Projet p where p.termine = 0"),
 })
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)

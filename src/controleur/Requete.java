@@ -1,6 +1,9 @@
 package controleur;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -29,8 +32,8 @@ public class Requete {
 		countLots12(emf, em, 12);
 		coutTotalEstime12(emf, em, 12);
 		entreprisesMenuiseriesMusee(emf, em);
-		// dureesProjetsEnCours(emf, em);
-		// avancementLots12(emf, em);
+		dureesProjetsEnCours(emf, em);
+		avancementLots12(emf, em, 12);
 	}
 
 	// Requete 1 : Quelles sont les entreprises avec lesquelles le cabinet travaille
@@ -190,13 +193,34 @@ public class Requete {
 	public static void dureesProjetsEnCours(EntityManagerFactory emf, EntityManager em) {
 		System.out.println();
 		System.out.println("Requete 13 : Quelles sont les durees estimees des differents projets en cours ?");
-	}
+		Date date = new Date();
+		Query q1 = em.createNamedQuery("Projet.tempsEstimeProjetEnCours");
+		List<Projet> lesProjets = q1.getResultList();
+		for (Projet unProjet : lesProjets) {
+			Calendar startCalendar = new GregorianCalendar();
+			Date startDate = new Date();
+			startCalendar.setTime(startDate);
+			Calendar endCalendar = new GregorianCalendar();
+			endCalendar.setTime(unProjet.getDateFinEstimee());
+			int diffYear = endCalendar.get(Calendar.YEAR) - startCalendar.get(Calendar.YEAR);
+			int diffMonth = diffYear * 12 + endCalendar.get(Calendar.MONTH) - startCalendar.get(Calendar.MONTH);
+			
+			System.out.println("Projet de reference : " + unProjet.getRefProjet() + " et de durée estimée : "
+					+ diffMonth + " mois");
+			}
+		}
 
 	// Requete 14 : Quels sont les avancements des lots (et leur type) du projet de
 	// reference "12" ?
-	public static void avancementLots12(EntityManagerFactory emf, EntityManager em) {
+	public static void avancementLots12(EntityManagerFactory emf, EntityManager em, int reference) {
 		System.out.println();
 		System.out.println(
 				"Requete 14 : Quels sont les avancements des lots (et leur type) du projet de reference \"12\" ?");
+		Query q1 = em.createNamedQuery("Lot.avancementLotDuProjet");
+		q1.setParameter("reference", reference);
+		List<Lot> lesLots = q1.getResultList();
+		for (Lot unLot : lesLots)
+			System.out.println("Lot de reference : " + unLot.getNumero() + " , de type : " + unLot.getClass().getTypeName() + " et d'avancement : "
+					+ unLot.getAvancement());
 	}
 }
