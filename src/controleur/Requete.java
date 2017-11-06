@@ -220,7 +220,7 @@ public class Requete {
 		q1.setParameter("reference", reference);
 		List<Lot> lesLots = q1.getResultList();
 		for (Lot unLot : lesLots)
-			System.out.println("Lot de reference : " + unLot.getNumero() + " , de type : " + unLot.getClass().getTypeName() + " et d'avancement : "
+			System.out.println("Lot de reference : " + unLot.getNumero() + " , de type : " + unLot.getClass().getSimpleName() + " et d'avancement : "
 					+ unLot.getAvancement());
 	}
 }
