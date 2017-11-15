@@ -82,9 +82,9 @@ public class Requete {
 		System.out.println();
 		System.out.println("Requete 4 : Combien de projets portant sur un etablissement scolaire ont ete realise ?");
 		Query q1 = em.createNamedQuery("EtablissementScolaire.countEtaScol");
-		List<EtablissementScolaire> lesEtablissementScolaire = q1.getResultList();
+		long lesEtablissementScolaire = (long) q1.getSingleResult();
 		System.out
-				.println("Nombre de projet portant sur un etablissement scolaire : " + lesEtablissementScolaire.size());
+				.println("Nombre de projet portant sur un etablissement scolaire : " + lesEtablissementScolaire);
 	}
 
 	// Requete 5 : Quelles sont les entreprises de plomberie ?
